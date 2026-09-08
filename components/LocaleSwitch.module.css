@@ -1,0 +1,28 @@
+.row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.item {
+  background: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  padding: 4px 6px;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #8a7f70;
+  cursor: pointer;
+  transition: color 120ms ease, border-color 120ms ease;
+}
+
+.item:hover {
+  color: #e8dfd2;
+}
+
+.item[data-active="true"] {
+  color: #e8dfd2;
+  border-color: #3a332b;
+}
