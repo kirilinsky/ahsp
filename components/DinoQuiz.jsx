@@ -4,35 +4,28 @@ import { useState } from "react";
 import LocaleSwitch from "./LocaleSwitch";
 import styles from "./DinoQuiz.module.css";
 
-export const COLORS = {
-  ink: "#14110e",
-  panel: "#1c1813",
-  panelSoft: "#231e18",
-  line: "#3a332b",
-  bone: "#e8dfd2",
-  boneDim: "#8a7f70",
-  teal: "#4fb3a0",
-  rust: "#c4643a",
-  amber: "#d9a441",
-};
-
-const CSS_VARS = {
-  "--ink": COLORS.ink,
-  "--panel": COLORS.panel,
-  "--panelSoft": COLORS.panelSoft,
-  "--line": COLORS.line,
-  "--bone": COLORS.bone,
-  "--boneDim": COLORS.boneDim,
-  "--teal": COLORS.teal,
-  "--rust": COLORS.rust,
-  "--amber": COLORS.amber,
+// Single source of truth for color lives in app/tokens.css.
+// This mirror exists only for inline styles (gradients, canvas fills)
+// that cannot be expressed in a CSS module.
+export const TOKENS = {
+  canvas: "var(--bg-canvas)",
+  surface: "var(--bg-surface)",
+  surfaceRaised: "var(--bg-surface-raised)",
+  borderSubtle: "var(--border-subtle)",
+  borderStrong: "var(--border-strong)",
+  textPrimary: "var(--text-primary)",
+  textSecondary: "var(--text-secondary)",
+  textMuted: "var(--text-muted)",
+  accent: "var(--accent)",
+  correct: "var(--status-correct)",
+  wrong: "var(--status-wrong)",
 };
 
 export default function DinoQuiz({ dict, locale }) {
   const [stage, setStage] = useState("cover");
 
   return (
-    <main className={styles.root} style={CSS_VARS}>
+    <main className={styles.root}>
       <div className={styles.sheet}>
         <header className={styles.topbar}>
           <span className={styles.brand}>AHSP</span>

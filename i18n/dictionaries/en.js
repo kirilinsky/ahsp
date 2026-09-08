@@ -25,7 +25,7 @@ const en = {
   },
   result: {
     kicker: "Verdict",
-    scoreLine: (score, total) => `${score} of ${total}`,
+    scoreLine: "{score} of {total}",
     restart: "Run it again",
   },
 };

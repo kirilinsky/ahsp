@@ -1,28 +1,29 @@
 .row {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: var(--space-1);
 }
 
 .item {
   background: none;
   border: 1px solid transparent;
-  border-radius: 4px;
-  padding: 4px 6px;
-  font-family: var(--font-mono), ui-monospace, monospace;
-  font-size: 11px;
-  letter-spacing: 0.08em;
+  border-radius: var(--radius-sm);
+  padding: var(--space-1) 6px;
+  font-family: var(--font-mono-stack);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-wide);
   text-transform: uppercase;
-  color: #8a7f70;
+  color: var(--text-muted);
   cursor: pointer;
-  transition: color 120ms ease, border-color 120ms ease;
+  transition: color var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out);
 }
 
 .item:hover {
-  color: #e8dfd2;
+  color: var(--text-primary);
 }
 
 .item[data-active="true"] {
-  color: #e8dfd2;
-  border-color: #3a332b;
+  color: var(--text-primary);
+  border-color: var(--border-subtle);
 }

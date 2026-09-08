@@ -1,0 +1,176 @@
+/* ─────────────────────────────────────────────────────────────
+   AHSP design system
+   Layer 1: primitives — raw values, never used by components.
+   Layer 2: semantic tokens — the only thing components reference.
+   Themes: dark is the default (the field-notebook look); light is
+   the paper variant. System preference wins unless [data-theme] is
+   set explicitly on <html>.
+   ───────────────────────────────────────────────────────────── */
+
+:root {
+  /* ---- Layer 1: primitives ---- */
+  --p-ink-900: #14110e;
+  --p-ink-800: #1c1813;
+  --p-ink-700: #231e18;
+  --p-ink-600: #2b251d;
+  --p-ink-500: #3a332b;
+  --p-ink-400: #4d453a;
+
+  --p-bone-50: #f7f2e9;
+  --p-bone-100: #e8dfd2;
+  --p-bone-200: #d3c7b5;
+  --p-bone-300: #a99c8a;
+  --p-bone-400: #8a7f70;
+  --p-bone-500: #6b6055;
+  --p-bone-600: #4a4139;
+
+  --p-paper-50: #faf6ee;
+  --p-paper-100: #f4efe6;
+  --p-paper-200: #ece4d6;
+  --p-paper-300: #ded4c6;
+
+  --p-teal-400: #4fb3a0;
+  --p-teal-600: #2f8272;
+  --p-rust-400: #c4643a;
+  --p-rust-600: #a44a24;
+  --p-amber-400: #d9a441;
+  --p-amber-600: #8f6a15;
+
+  /* ---- Typography ---- */
+  --font-display: var(--font-bitter), Georgia, "Times New Roman", serif;
+  --font-body: var(--font-inter), system-ui, -apple-system, sans-serif;
+  --font-mono-stack: var(--font-mono), ui-monospace, SFMono-Regular, monospace;
+
+  --text-xs: 11px;
+  --text-sm: 13px;
+  --text-base: 15px;
+  --text-lg: 18px;
+  --text-xl: 22px;
+  --text-display: clamp(32px, 8vw, 46px);
+
+  --leading-tight: 1.1;
+  --leading-snug: 1.35;
+  --leading-normal: 1.55;
+
+  --tracking-wide: 0.08em;
+  --tracking-wider: 0.2em;
+
+  /* ---- Space / radius / motion ---- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+
+  --duration-fast: 120ms;
+  --duration-base: 160ms;
+  --ease-out: cubic-bezier(0.2, 0.8, 0.3, 1);
+
+  --measure: 44ch;
+}
+
+/* ---- Layer 2: semantic tokens — dark (default) ---- */
+:root,
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --bg-canvas: var(--p-ink-900);
+  --bg-surface: var(--p-ink-800);
+  --bg-surface-raised: var(--p-ink-700);
+  --bg-surface-hover: var(--p-ink-600);
+
+  --border-subtle: var(--p-ink-500);
+  --border-strong: var(--p-ink-400);
+
+  --text-primary: var(--p-bone-100);
+  --text-secondary: var(--p-bone-400);
+  --text-muted: var(--p-bone-500);
+  --text-inverse: var(--p-ink-900);
+
+  --accent: var(--p-amber-400);
+  --accent-contrast: var(--p-ink-900);
+
+  --status-correct: var(--p-teal-400);
+  --status-correct-bg: rgba(79, 179, 160, 0.12);
+  --status-wrong: var(--p-rust-400);
+  --status-wrong-bg: rgba(196, 100, 58, 0.12);
+
+  --focus-ring: var(--p-amber-400);
+  --shadow-card: 0 1px 0 rgba(255, 255, 255, 0.03),
+    0 12px 32px rgba(0, 0, 0, 0.45);
+}
+
+/* ---- Semantic tokens — light (paper) ---- */
+:root[data-theme="light"] {
+  color-scheme: light;
+
+  --bg-canvas: var(--p-paper-100);
+  --bg-surface: var(--p-paper-50);
+  --bg-surface-raised: #ffffff;
+  --bg-surface-hover: var(--p-paper-200);
+
+  --border-subtle: var(--p-paper-300);
+  --border-strong: var(--p-bone-300);
+
+  --text-primary: #2a231b;
+  --text-secondary: var(--p-bone-500);
+  --text-muted: var(--p-bone-400);
+  --text-inverse: var(--p-paper-50);
+
+  --accent: var(--p-amber-600);
+  --accent-contrast: var(--p-paper-50);
+
+  --status-correct: var(--p-teal-600);
+  --status-correct-bg: rgba(47, 130, 114, 0.1);
+  --status-wrong: var(--p-rust-600);
+  --status-wrong-bg: rgba(164, 74, 36, 0.1);
+
+  --focus-ring: var(--p-amber-600);
+  --shadow-card: 0 1px 2px rgba(42, 35, 27, 0.06),
+    0 12px 28px rgba(42, 35, 27, 0.08);
+}
+
+/* System preference, only when the user has not picked a theme */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) {
+    color-scheme: light;
+
+    --bg-canvas: var(--p-paper-100);
+    --bg-surface: var(--p-paper-50);
+    --bg-surface-raised: #ffffff;
+    --bg-surface-hover: var(--p-paper-200);
+
+    --border-subtle: var(--p-paper-300);
+    --border-strong: var(--p-bone-300);
+
+    --text-primary: #2a231b;
+    --text-secondary: var(--p-bone-500);
+    --text-muted: var(--p-bone-400);
+    --text-inverse: var(--p-paper-50);
+
+    --accent: var(--p-amber-600);
+    --accent-contrast: var(--p-paper-50);
+
+    --status-correct: var(--p-teal-600);
+    --status-correct-bg: rgba(47, 130, 114, 0.1);
+    --status-wrong: var(--p-rust-600);
+    --status-wrong-bg: rgba(164, 74, 36, 0.1);
+
+    --focus-ring: var(--p-amber-600);
+    --shadow-card: 0 1px 2px rgba(42, 35, 27, 0.06),
+      0 12px 28px rgba(42, 35, 27, 0.08);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 0ms;
+    --duration-base: 0ms;
+  }
+}

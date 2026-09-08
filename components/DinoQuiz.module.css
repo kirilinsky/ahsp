@@ -1,10 +1,10 @@
 .root {
   min-height: 100dvh;
-  background: var(--ink);
-  color: var(--bone);
+  background: var(--bg-canvas);
+  color: var(--text-primary);
   display: flex;
   justify-content: center;
-  padding: 24px 16px 48px;
+  padding: var(--space-5) var(--space-4) var(--space-7);
 }
 
 .sheet {
@@ -12,78 +12,80 @@
   max-width: 560px;
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  gap: var(--space-6);
 }
 
 .topbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: var(--space-3);
 }
 
 .brand {
-  font-family: var(--font-mono), ui-monospace, monospace;
-  font-size: 12px;
-  letter-spacing: 0.22em;
-  color: var(--boneDim);
+  font-family: var(--font-mono-stack);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-wider);
+  color: var(--text-secondary);
 }
 
 .cover {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 18px;
+  gap: var(--space-4);
   padding-top: 8vh;
 }
 
 .kicker {
   margin: 0;
-  font-family: var(--font-mono), ui-monospace, monospace;
-  font-size: 11px;
-  letter-spacing: 0.2em;
+  font-family: var(--font-mono-stack);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-wider);
   text-transform: uppercase;
-  color: var(--amber);
+  color: var(--accent);
 }
 
 .title {
   margin: 0;
-  font-family: var(--font-bitter), Georgia, serif;
-  font-size: clamp(32px, 8vw, 46px);
+  font-family: var(--font-display);
+  font-size: var(--text-display);
   font-weight: 700;
-  line-height: 1.05;
+  line-height: var(--leading-tight);
   letter-spacing: -0.01em;
 }
 
 .subtitle {
   margin: 0;
-  max-width: 44ch;
-  font-size: 15px;
-  line-height: 1.55;
-  color: var(--boneDim);
+  max-width: var(--measure);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--text-secondary);
 }
 
 .cta {
-  margin-top: 8px;
-  padding: 13px 22px;
-  border: 1px solid var(--line);
-  border-radius: 6px;
-  background: var(--panel);
-  color: var(--bone);
-  font-size: 15px;
+  margin-top: var(--space-1);
+  padding: var(--space-3) var(--space-5);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  font-size: var(--text-base);
   font-weight: 500;
   cursor: pointer;
-  transition: border-color 140ms ease, background 140ms ease;
+  transition: border-color var(--duration-fast) var(--ease-out),
+    background var(--duration-fast) var(--ease-out);
 }
 
 .cta:hover {
-  background: var(--panelSoft);
-  border-color: var(--boneDim);
+  background: var(--bg-surface-hover);
+  border-color: var(--border-strong);
 }
 
 .meta {
   margin: 0;
-  font-family: var(--font-mono), ui-monospace, monospace;
-  font-size: 11px;
-  letter-spacing: 0.06em;
-  color: var(--boneDim);
+  font-family: var(--font-mono-stack);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-wide);
+  color: var(--text-muted);
 }
