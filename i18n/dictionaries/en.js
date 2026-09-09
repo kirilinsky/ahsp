@@ -45,6 +45,28 @@ const en = {
     scoreLine: "{score} of {total}",
     restart: "Run it again",
   },
+  ranks: {
+    filmSchool: {
+      title: "Graduate of Jurassic Park",
+      note: "Everything you know came from a film studio. Good news: almost none of it was true, so there is a lot of room.",
+    },
+    giftShop: {
+      title: "Museum gift shop",
+      note: "You have the plastic dinosaurs and a rough idea of the order of things. The dates are still fiction.",
+    },
+    fieldAssistant: {
+      title: "Field assistant",
+      note: "You know a pterosaur is not a dinosaur and that birds got the last laugh. Deep time still slips.",
+    },
+    curator: {
+      title: "Curator",
+      note: "You keep the eras straight and you are not fooled by a sail on a back. One specimen got past you.",
+    },
+    palaeontologist: {
+      title: "Palaeontologist",
+      note: "Full marks. You know that Stegosaurus is further from T. rex than T. rex is from you.",
+    },
+  },
 
   questions: {
     "titanosaur-egg": {

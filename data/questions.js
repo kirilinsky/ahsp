@@ -76,8 +76,9 @@ export const QUESTION_BANK = [
     type: "slider",
     theme: "time",
     unit: "Myr",
+    // upper bound pushed out so the midpoint start is not already a free point
     min: 20,
-    max: 250,
+    max: 400,
     step: 5,
     answer: 165,
   },
