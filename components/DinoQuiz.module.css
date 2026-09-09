@@ -126,3 +126,9 @@
 .footerNote {
   color: var(--text-muted);
 }
+
+.previewNav {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}

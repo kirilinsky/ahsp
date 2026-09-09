@@ -1,6 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import { QUIZ_LENGTH } from "@/data/questions";
+import { format } from "@/i18n/format";
+import TrailProgress from "./TrailProgress";
 import LocaleSwitch from "./LocaleSwitch";
 import ThemeToggle from "./ThemeToggle";
 import styles from "./DinoQuiz.module.css";
@@ -25,6 +28,13 @@ export const TOKENS = {
 
 export default function DinoQuiz({ dict, locale }) {
   const [stage, setStage] = useState("cover");
+  // temporary: drives the trail preview until the question screens land
+  const [index, setIndex] = useState(0);
+
+  const progressLabel = format(dict.ui.progress, {
+    current: index + 1,
+    total: QUIZ_LENGTH,
+  });
 
   return (
     <main className={styles.root}>
@@ -50,14 +60,31 @@ export default function DinoQuiz({ dict, locale }) {
           </section>
         ) : (
           <section className={`${styles.card} ${styles.cover}`}>
-            <p className={`${styles.kicker} t-label-sm`}>{dict.ui.question} — TODO</p>
-            <button
-              type="button"
-              className={styles.cta}
-              onClick={() => setStage("cover")}
-            >
-              {dict.ui.restart}
-            </button>
+            <TrailProgress
+              total={QUIZ_LENGTH}
+              index={index}
+              label={progressLabel}
+            />
+            <p className={`${styles.kicker} t-label-sm`}>{progressLabel}</p>
+            <div className={styles.previewNav}>
+              <button
+                type="button"
+                className={styles.cta}
+                onClick={() => setIndex((i) => Math.min(i + 1, QUIZ_LENGTH - 1))}
+              >
+                {dict.ui.next}
+              </button>
+              <button
+                type="button"
+                className={styles.cta}
+                onClick={() => {
+                  setIndex(0);
+                  setStage("cover");
+                }}
+              >
+                {dict.ui.restart}
+              </button>
+            </div>
           </section>
         )}
         <footer className={styles.footer}>

@@ -20,6 +20,7 @@ const en = {
   ui: {
     question: "Question",
     of: "of",
+    progress: "Question {current} of {total}",
     check: "Check",
     next: "Next",
     seeResult: "See the verdict",

@@ -1,0 +1,92 @@
+.trail {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 56px;
+  padding: 0 var(--space-xxs);
+}
+
+.steps {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+}
+
+/* Prints face the direction of travel (90deg), and alternate above and
+   below the centre line so the trail reads as a stride, not a row of icons. */
+.step:nth-child(odd) {
+  transform: translateY(-7px) rotate(82deg);
+}
+
+.step:nth-child(even) {
+  transform: translateY(7px) rotate(98deg);
+}
+
+.print {
+  width: 22px;
+  height: 24px;
+  transition: color var(--duration-base) var(--ease-out),
+    opacity var(--duration-base) var(--ease-out);
+}
+
+/* already walked: pressed firmly into the sage-tinted ground */
+.step[data-state="walked"] .print {
+  color: var(--status-correct);
+  opacity: 0.9;
+}
+
+/* where the boot is right now */
+.step[data-state="current"] .print {
+  color: var(--accent);
+  opacity: 1;
+  animation: shimmer 1.8s var(--ease-out) infinite;
+}
+
+.step[data-state="current"] {
+  filter: drop-shadow(0 2px 6px rgba(217, 107, 67, 0.35));
+}
+
+/* untrodden sand */
+.step[data-state="ahead"] .print {
+  color: var(--border-subtle);
+  opacity: 0.55;
+}
+
+@keyframes shimmer {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.55;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .step[data-state="current"] .print {
+    animation: none;
+  }
+}
+
+@media (min-width: 640px) {
+  .print {
+    width: 26px;
+    height: 28px;
+  }
+
+  .trail {
+    min-height: 64px;
+  }
+}
