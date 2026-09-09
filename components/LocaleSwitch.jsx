@@ -15,8 +15,9 @@ export default function LocaleSwitch({ initialLocale }) {
       initialLocale={initialLocale}
       cookieName={LOCALE_COOKIE}
       reloadStrategy={() => router.refresh()}
-      className={styles.row}
-      itemClassName={styles.item}
+      isDropdown
+      className={styles.select}
+      itemClassName={styles.option}
     />
   );
 }

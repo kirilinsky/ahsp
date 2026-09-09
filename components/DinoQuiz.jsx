@@ -30,10 +30,7 @@ export default function DinoQuiz({ dict, locale }) {
       <div className={styles.sheet}>
         <header className={styles.topbar}>
           <span className={styles.brand}>AHSP</span>
-          <div className={styles.controls}>
-            <LocaleSwitch initialLocale={locale} />
-            <ThemeToggle label={dict.ui.theme} />
-          </div>
+          <ThemeToggle label={dict.ui.theme} />
         </header>
 
         {stage === "cover" ? (
@@ -62,6 +59,13 @@ export default function DinoQuiz({ dict, locale }) {
             </button>
           </section>
         )}
+        <footer className={styles.footer}>
+          {/* the package exposes no aria-label, so wrap it to name the select */}
+          <label className={styles.footerField}>
+            <span className={styles.footerNote}>{dict.ui.language}</span>
+            <LocaleSwitch initialLocale={locale} />
+          </label>
+        </footer>
       </div>
     </main>
   );
