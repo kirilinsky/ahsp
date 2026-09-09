@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import LocaleSwitch from "./LocaleSwitch";
+import ThemeToggle from "./ThemeToggle";
 import styles from "./DinoQuiz.module.css";
 
 // Single source of truth for color lives in app/tokens.css.
@@ -29,7 +30,10 @@ export default function DinoQuiz({ dict, locale }) {
       <div className={styles.sheet}>
         <header className={styles.topbar}>
           <span className={styles.brand}>AHSP</span>
-          <LocaleSwitch initialLocale={locale} />
+          <div className={styles.controls}>
+            <LocaleSwitch initialLocale={locale} />
+            <ThemeToggle label={dict.ui.theme} />
+          </div>
         </header>
 
         {stage === "cover" ? (

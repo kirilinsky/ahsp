@@ -1,4 +1,5 @@
 import { Bitter, Inter, IBM_Plex_Mono } from "next/font/google";
+import { themeInitScript } from "@/components/theme-init";
 import "./globals.css";
 
 const bitter = Bitter({
@@ -39,7 +40,13 @@ export default function RootLayout({ children }) {
     <html
       lang="en"
       className={`${bitter.variable} ${inter.variable} ${plexMono.variable}`}
+      suppressHydrationWarning
     >
+      <head>
+        <script
+          dangerouslySetInnerHTML={{ __html: themeInitScript }}
+        />
+      </head>
       <body>{children}</body>
     </html>
   );

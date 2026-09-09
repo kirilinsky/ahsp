@@ -22,6 +22,7 @@ const en = {
     yourAnswer: "Your answer",
     correctAnswer: "Actually",
     language: "Language",
+    theme: "Switch light / dark theme",
   },
   result: {
     kicker: "Verdict",
