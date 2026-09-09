@@ -75,7 +75,7 @@ export const QUESTION_BANK = [
     id: "dino-era-length",
     type: "slider",
     theme: "time",
-    unit: "Ma",
+    unit: "Myr",
     min: 20,
     max: 250,
     step: 5,

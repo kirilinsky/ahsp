@@ -13,14 +13,16 @@ body {
   margin: 0;
   background: var(--bg-canvas);
   color: var(--text-primary);
-  font-family: var(--font-body);
-  font-size: var(--text-base);
-  line-height: var(--leading-normal);
+  font-family: var(--font-sans);
+  font-size: var(--body-md-size);
+  line-height: var(--body-md-lh);
   -webkit-font-smoothing: antialiased;
   transition: background var(--duration-base) var(--ease-out);
 }
 
-button {
+button,
+select,
+input {
   font-family: inherit;
 }
 

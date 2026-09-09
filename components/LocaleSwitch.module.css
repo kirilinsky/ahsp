@@ -1,33 +1,30 @@
 .select {
   appearance: none;
   -webkit-appearance: none;
-  padding: 6px 26px 6px var(--space-2);
+  height: 28px;
+  padding: 0 26px 0 12px;
   border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-sm);
-  background-color: var(--bg-surface);
+  border-radius: var(--radius-full);
+  background-color: var(--bg-surface-sunken);
   /* caret drawn inline so it recolors with the theme */
-  background-image: linear-gradient(
-      45deg,
-      transparent 50%,
-      currentColor 50%
-    ),
+  background-image: linear-gradient(45deg, transparent 50%, currentColor 50%),
     linear-gradient(135deg, currentColor 50%, transparent 50%);
   background-position: right 12px center, right 7px center;
   background-size: 5px 5px, 5px 5px;
   background-repeat: no-repeat;
-  color: var(--text-secondary);
-  font-family: var(--font-mono-stack);
-  font-size: var(--text-xs);
-  letter-spacing: var(--tracking-wide);
+  color: var(--text-primary);
+  font-size: var(--label-md-size);
+  font-weight: var(--label-md-weight);
+  letter-spacing: var(--label-md-ls);
   line-height: 1;
   cursor: pointer;
-  transition: color var(--duration-fast) var(--ease-out),
-    border-color var(--duration-fast) var(--ease-out);
+  transition: border-color var(--duration-fast) var(--ease-out),
+    background-color var(--duration-fast) var(--ease-out);
 }
 
 .select:hover {
-  color: var(--text-primary);
   border-color: var(--border-strong);
+  background-color: var(--bg-surface-hover);
 }
 
 /* Native popup rendering is OS-owned; only color-scheme reliably steers it. */
