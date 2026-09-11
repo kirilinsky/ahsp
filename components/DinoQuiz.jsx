@@ -1,39 +1,84 @@
 "use client";
 
-import { useState } from "react";
-import { QUIZ_LENGTH } from "@/data/questions";
+import { useCallback, useState } from "react";
+import { pickRound, QUIZ_LENGTH } from "@/data/questions";
 import { format } from "@/i18n/format";
-import TrailProgress from "./TrailProgress";
+import {
+  defaultValueFor,
+  isAnswered,
+  nextStage,
+  rankFor,
+  scoreRound,
+} from "@/lib/quiz";
 import LocaleSwitch from "./LocaleSwitch";
 import ThemeToggle from "./ThemeToggle";
+import TrailProgress from "./TrailProgress";
+import QuestionScreen from "./QuestionScreen";
 import styles from "./DinoQuiz.module.css";
 
-// Single source of truth for colour lives in app/tokens.css.
-// This mirror exists only for inline styles (slider gradients, canvas fills)
-// that a CSS module cannot express.
+// Single source of truth for colour lives in app/tokens.css. This mirror
+// exists only for inline styles (slider gradients) a CSS module cannot express.
 export const TOKENS = {
-  canvas: "var(--bg-canvas)",
-  surface: "var(--bg-surface)",
-  surfaceSunken: "var(--bg-surface-sunken)",
-  borderSubtle: "var(--border-subtle)",
-  borderStrong: "var(--border-strong)",
-  textPrimary: "var(--text-primary)",
-  textSecondary: "var(--text-secondary)",
   accent: "var(--accent)",
   accentWarm: "var(--accent-warm)",
   correct: "var(--status-correct)",
   wrong: "var(--status-wrong)",
-  highlight: "var(--highlight)",
+  surfaceSunken: "var(--bg-surface-sunken)",
 };
+
+const EMPTY_RUN = { round: null, answers: {}, index: 0, revealed: false };
 
 export default function DinoQuiz({ dict, locale }) {
   const [stage, setStage] = useState("cover");
-  // temporary: drives the trail preview until the question screens land
-  const [index, setIndex] = useState(0);
+  const [run, setRun] = useState(EMPTY_RUN);
 
+  // The round is drawn on the client at start: doing it during render would
+  // desync server and client markup, and a locale refresh would reshuffle it.
+  const start = useCallback(() => {
+    const round = pickRound();
+    setRun({
+      round,
+      answers: Object.fromEntries(
+        round.map((q) => [q.id, defaultValueFor(q)])
+      ),
+      index: 0,
+      revealed: false,
+    });
+    setStage("quiz");
+  }, []);
+
+  const restart = useCallback(() => {
+    setRun(EMPTY_RUN);
+    setStage("cover");
+  }, []);
+
+  const answer = useCallback((id, value) => {
+    setRun((prev) =>
+      prev.revealed ? prev : { ...prev, answers: { ...prev.answers, [id]: value } }
+    );
+  }, []);
+
+  // computed outside the updater: a state setter must stay side-effect free,
+  // or StrictMode's double invocation runs the stage change twice
+  const advance = useCallback(() => {
+    if (!run.round) return;
+    const next = nextStage({
+      index: run.index,
+      revealed: run.revealed,
+      total: run.round.length,
+    });
+    if (next.done) {
+      setStage("result");
+      return;
+    }
+    setRun((prev) => ({ ...prev, index: next.index, revealed: next.revealed }));
+  }, [run]);
+
+  const { round, answers, index, revealed } = run;
+  const question = round?.[index];
   const progressLabel = format(dict.ui.progress, {
     current: index + 1,
-    total: QUIZ_LENGTH,
+    total: round?.length ?? QUIZ_LENGTH,
   });
 
   return (
@@ -48,53 +93,82 @@ export default function DinoQuiz({ dict, locale }) {
           <section className={`${styles.card} ${styles.cover}`}>
             <p className={`${styles.kicker} t-label-sm`}>{dict.cover.kicker}</p>
             <h1 className={`${styles.title} t-display`}>{dict.cover.title}</h1>
-            <p className={`${styles.subtitle} t-body-lg`}>{dict.cover.subtitle}</p>
-            <button
-              type="button"
-              className={styles.cta}
-              onClick={() => setStage("quiz")}
-            >
+            <p className={`${styles.subtitle} t-body-lg`}>
+              {dict.cover.subtitle}
+            </p>
+            <button type="button" className={styles.cta} onClick={start}>
               {dict.cover.start}
             </button>
             <p className={`${styles.meta} t-label-md`}>{dict.cover.meta}</p>
           </section>
-        ) : (
-          <section className={`${styles.card} ${styles.cover}`}>
+        ) : null}
+
+        {stage === "quiz" && question ? (
+          <section className={styles.card}>
             <TrailProgress
-              total={QUIZ_LENGTH}
+              total={round.length}
               index={index}
               label={progressLabel}
             />
             <p className={`${styles.kicker} t-label-sm`}>{progressLabel}</p>
-            <div className={styles.previewNav}>
-              <button
-                type="button"
-                className={styles.cta}
-                onClick={() => setIndex((i) => Math.min(i + 1, QUIZ_LENGTH - 1))}
-              >
-                {dict.ui.next}
-              </button>
-              <button
-                type="button"
-                className={styles.cta}
-                onClick={() => {
-                  setIndex(0);
-                  setStage("cover");
-                }}
-              >
-                {dict.ui.restart}
-              </button>
-            </div>
+
+            <QuestionScreen
+              question={question}
+              copy={dict.questions[question.id]}
+              dict={dict}
+              value={answers[question.id]}
+              revealed={revealed}
+              onAnswer={(value) => answer(question.id, value)}
+            />
+
+            <button
+              type="button"
+              className={styles.cta}
+              disabled={!revealed && !isAnswered(question, answers[question.id])}
+              onClick={advance}
+            >
+              {!revealed
+                ? dict.ui.check
+                : index + 1 >= round.length
+                  ? dict.ui.seeResult
+                  : dict.ui.next}
+            </button>
           </section>
-        )}
+        ) : null}
+
+        {stage === "result" && round ? (
+          <ResultScreen dict={dict} round={round} answers={answers} onRestart={restart} />
+        ) : null}
+
         <footer className={styles.footer}>
           {/* the package exposes no aria-label, so wrap it to name the select */}
           <label className={styles.footerField}>
-            <span className={`${styles.footerNote} t-label-sm`}>{dict.ui.language}</span>
+            <span className={`${styles.footerNote} t-label-sm`}>
+              {dict.ui.language}
+            </span>
             <LocaleSwitch initialLocale={locale} />
           </label>
         </footer>
       </div>
     </main>
+  );
+}
+
+function ResultScreen({ dict, round, answers, onRestart }) {
+  const score = scoreRound(round, answers);
+  const rank = dict.ranks[rankFor(score, round.length)];
+
+  return (
+    <section className={`${styles.card} ${styles.cover}`}>
+      <p className={`${styles.kicker} t-label-sm`}>{dict.result.kicker}</p>
+      <p className={`${styles.score} t-display`}>
+        {format(dict.result.scoreLine, { score, total: round.length })}
+      </p>
+      <h2 className="t-headline-xl">{rank.title}</h2>
+      <p className={`${styles.subtitle} t-body-lg`}>{rank.note}</p>
+      <button type="button" className={styles.cta} onClick={onRestart}>
+        {dict.result.restart}
+      </button>
+    </section>
   );
 }

@@ -31,6 +31,8 @@ const en = {
     theme: "Switch light / dark theme",
     true: "True",
     myth: "Myth",
+    correctLabel: "Correct",
+    wrongLabel: "Not quite",
     close: "Close enough",
     off: "Off",
   },

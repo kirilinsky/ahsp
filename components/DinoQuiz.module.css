@@ -127,8 +127,19 @@
   color: var(--text-muted);
 }
 
-.previewNav {
+.card {
   display: flex;
-  gap: var(--space-sm);
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.score {
+  margin: 0;
+  color: var(--accent);
+}
+
+.cta:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  box-shadow: none;
 }

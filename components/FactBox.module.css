@@ -1,0 +1,26 @@
+.box {
+  border-left: 3px solid var(--status-wrong);
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface-raised);
+  padding: var(--space-md);
+}
+
+.box[data-correct="yes"] {
+  border-left-color: var(--status-correct);
+}
+
+.label {
+  margin: 0 0 var(--space-xxs);
+  color: var(--status-wrong);
+}
+
+.box[data-correct="yes"] .label {
+  color: var(--status-correct);
+}
+
+.text {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: var(--body-md-size);
+  line-height: var(--body-md-lh);
+}

@@ -1,0 +1,16 @@
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.prompt {
+  margin: 0;
+  max-width: 40ch;
+}
+
+.description {
+  margin: 0;
+  max-width: 56ch;
+  color: var(--text-secondary);
+}
