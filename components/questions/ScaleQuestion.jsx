@@ -20,6 +20,7 @@ const ERAS = [
 export default function ScaleQuestion({
   question,
   dict,
+  label: promptLabel,
   value,
   revealed,
   onChange,
@@ -84,7 +85,7 @@ export default function ScaleQuestion({
           step={step}
           value={value}
           disabled={revealed}
-          aria-label={question.id}
+          aria-label={promptLabel}
           aria-valuetext={label(value)}
           onChange={(event) => onChange(Number(event.target.value))}
         />

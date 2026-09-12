@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import { isCorrect } from "@/lib/quiz";
 import ChoiceQuestion, { KEY_HINTS } from "./questions/ChoiceQuestion";
+import ScaleQuestion from "./questions/ScaleQuestion";
 import FactBox from "./FactBox";
 import styles from "./QuestionScreen.module.css";
 
@@ -73,10 +74,14 @@ export default function QuestionScreen({
           onChange={onAnswer}
         />
       ) : (
-        <p className={styles.description}>
-          {/* slider and timeline controls land in the next step */}
-          {question.type} — TODO
-        </p>
+        <ScaleQuestion
+          question={question}
+          dict={dict}
+          label={copy.prompt}
+          value={value}
+          revealed={revealed}
+          onChange={onAnswer}
+        />
       )}
 
       {revealed ? (
