@@ -1,0 +1,171 @@
+.scale {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding-top: var(--space-xl);
+}
+
+.trackArea {
+  position: relative;
+  height: 24px;
+}
+
+/* 8px silt track with the geological notches layered inside */
+.track {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 8px;
+  transform: translateY(-50%);
+  border-radius: var(--radius-full);
+  background: var(--bg-surface-sunken);
+  overflow: hidden;
+}
+
+.era {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  border-right: 1px solid var(--bg-canvas);
+}
+
+.era[data-era="cenozoic"] {
+  background: color-mix(in srgb, var(--text-muted) 12%, transparent);
+}
+
+.era[data-era="cretaceous"] {
+  background: color-mix(in srgb, var(--accent-warm) 22%, transparent);
+}
+
+.era[data-era="jurassic"] {
+  background: color-mix(in srgb, var(--status-correct) 22%, transparent);
+}
+
+.era[data-era="triassic"] {
+  background: color-mix(in srgb, var(--highlight) 26%, transparent);
+}
+
+/* the band that would have counted as correct */
+.band {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background: color-mix(in srgb, var(--status-correct) 45%, transparent);
+}
+
+.truth {
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  width: 3px;
+  margin-left: -1.5px;
+  border-radius: var(--radius-full);
+  background: var(--status-correct);
+}
+
+/* native input kept on top, its own track hidden */
+.input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  margin: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  background: transparent;
+  cursor: grab;
+}
+
+.input:disabled {
+  cursor: default;
+}
+
+.input::-webkit-slider-runnable-track {
+  height: 24px;
+  background: transparent;
+}
+
+.input::-moz-range-track {
+  height: 24px;
+  background: transparent;
+}
+
+/* 24px terracotta disc with an embossed centre ring */
+.input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 24px;
+  height: 24px;
+  border: none;
+  border-radius: var(--radius-full);
+  background: var(--accent);
+  box-shadow: inset 0 0 0 3px color-mix(in srgb, var(--accent) 55%, #fff),
+    inset 0 -2px 0 rgba(0, 0, 0, 0.2), var(--elevation-2);
+}
+
+.input::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border: none;
+  border-radius: var(--radius-full);
+  background: var(--accent);
+  box-shadow: inset 0 0 0 3px color-mix(in srgb, var(--accent) 55%, #fff),
+    inset 0 -2px 0 rgba(0, 0, 0, 0.2), var(--elevation-2);
+}
+
+.bubble {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  transform: translateX(-50%);
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  background: var(--highlight-quiet);
+  color: var(--text-primary);
+  font-size: var(--label-lg-size);
+  font-weight: var(--label-lg-weight);
+  white-space: nowrap;
+}
+
+/* speech-bubble tail */
+.bubble::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: var(--highlight-quiet);
+}
+
+.ends {
+  display: flex;
+  justify-content: space-between;
+  color: var(--text-muted);
+}
+
+.eraLabels {
+  position: relative;
+  height: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--text-muted);
+}
+
+.eraLabels li {
+  position: absolute;
+  top: 0;
+  overflow: hidden;
+  text-align: center;
+}
+
+.eraLabels span {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.readout {
+  margin: 0;
+  color: var(--text-secondary);
+}

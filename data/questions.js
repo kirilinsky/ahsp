@@ -70,6 +70,8 @@ export const QUESTION_BANK = [
     step: 1,
     answer: 67,
     pinned: true,
+    // the track carries geological bands; only a "years ago" scale can
+    eras: true,
   },
   {
     id: "dino-era-length",

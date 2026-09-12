@@ -36,6 +36,12 @@ const en = {
     close: "Close enough",
     off: "Off",
   },
+  eras: {
+    cenozoic: "Cenozoic",
+    cretaceous: "Cretaceous",
+    jurassic: "Jurassic",
+    triassic: "Triassic",
+  },
   units: {
     cm: "{value} cm",
     g: "{value} g",
