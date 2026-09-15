@@ -1,5 +1,6 @@
 import { Plus_Jakarta_Sans, Manrope } from "next/font/google";
 import { themeInitScript } from "@/components/theme-init";
+import { getDictionary, getLocale } from "@/i18n";
 import "./globals.css";
 
 const jakarta = Plus_Jakarta_Sans({
@@ -18,11 +19,13 @@ const manrope = Manrope({
   display: "swap",
 });
 
-export const metadata = {
-  title: "AHSP — are here some pteryx?",
-  description:
-    "A quiz about dinosaurs, and about everything people file under 'dinosaur' by mistake.",
-};
+export async function generateMetadata() {
+  const dict = await getDictionary(await getLocale());
+  return {
+    title: dict.meta.title,
+    description: dict.meta.description,
+  };
+}
 
 export const viewport = {
   themeColor: [
@@ -31,10 +34,12 @@ export const viewport = {
   ],
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  const locale = await getLocale();
+
   return (
     <html
-      lang="en"
+      lang={locale}
       className={`${jakarta.variable} ${manrope.variable}`}
       suppressHydrationWarning
     >
