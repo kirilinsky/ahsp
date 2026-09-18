@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { pickRound, QUIZ_LENGTH } from "@/data/questions";
 import { format } from "@/i18n/format";
 import {
@@ -76,6 +76,25 @@ export default function DinoQuiz({ dict, locale }) {
 
   const { round, answers, index, revealed } = run;
   const question = round?.[index];
+  const canAdvance =
+    !!question && (revealed || isAnswered(question, answers[question.id]));
+
+  // Enter carries the run forward, so a whole round is playable from the
+  // keyboard. Buttons and the locale select handle Enter themselves.
+  useEffect(() => {
+    if (stage !== "quiz" || !canAdvance) return undefined;
+
+    function onKeyDown(event) {
+      if (event.key !== "Enter" || event.metaKey || event.ctrlKey) return;
+      const tag = event.target?.tagName;
+      if (tag === "BUTTON" || tag === "SELECT") return;
+      event.preventDefault();
+      advance();
+    }
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [stage, canAdvance, advance]);
   const progressLabel = format(dict.ui.progress, {
     current: index + 1,
     total: round?.length ?? QUIZ_LENGTH,
@@ -124,7 +143,7 @@ export default function DinoQuiz({ dict, locale }) {
             <button
               type="button"
               className={styles.cta}
-              disabled={!revealed && !isAnswered(question, answers[question.id])}
+              disabled={!canAdvance}
               onClick={advance}
             >
               {!revealed
