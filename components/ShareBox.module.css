@@ -1,0 +1,44 @@
+.box {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--border-subtle);
+}
+
+.label {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+.row {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+}
+
+/* Secondary action: reads as a field tag, never competes with the primary CTA */
+.link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 0 var(--space-md);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-full);
+  background: var(--bg-surface-raised);
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: var(--label-md-size);
+  font-weight: var(--label-md-weight);
+  letter-spacing: var(--label-md-ls);
+  transition: background var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out);
+}
+
+.link:hover {
+  background: var(--bg-surface-sunken);
+  border-color: var(--accent);
+}

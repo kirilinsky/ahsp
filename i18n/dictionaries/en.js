@@ -53,6 +53,16 @@ const en = {
     kicker: "Verdict",
     scoreLine: "{score} of {total}",
     restart: "Run it again",
+    share: {
+      label: "Share the verdict",
+      // Only X carries this line; the other two read the page's OG tags.
+      text: "{score} of {total} on AHSP — {rank}.",
+      action: "Share on {network}",
+      twitter: "X",
+      telegram: "Telegram",
+      facebook: "Facebook",
+      linkedin: "LinkedIn",
+    },
   },
   ranks: {
     filmSchool: {
