@@ -151,7 +151,15 @@ export default function DinoQuiz({ dict, locale }) {
         ) : null}
 
         {stage === "result" && round ? (
-          <ResultScreen dict={dict} round={round} answers={answers} onRestart={restart} />
+          <section className={`${styles.card} ${styles.cover}`}>
+            <p className={`${styles.kicker} t-label-sm`}>{dict.result.kicker}</p>
+
+            <ResultScreen dict={dict} round={round} answers={answers} />
+
+            <button type="button" className={styles.cta} onClick={restart}>
+              {dict.result.restart}
+            </button>
+          </section>
         ) : null}
 
         <footer className={styles.footer}>
@@ -165,24 +173,5 @@ export default function DinoQuiz({ dict, locale }) {
         </footer>
       </div>
     </main>
-  );
-}
-
-function ResultScreen({ dict, round, answers, onRestart }) {
-  const score = scoreRound(round, answers);
-  const rank = dict.ranks[rankFor(score, round.length)];
-
-  return (
-    <section className={`${styles.card} ${styles.cover}`}>
-      <p className={`${styles.kicker} t-label-sm`}>{dict.result.kicker}</p>
-      <p className={`${styles.score} t-display`}>
-        {format(dict.result.scoreLine, { score, total: round.length })}
-      </p>
-      <h2 className="t-headline-xl">{rank.title}</h2>
-      <p className={`${styles.subtitle} t-body-lg`}>{rank.note}</p>
-      <button type="button" className={styles.cta} onClick={onRestart}>
-        {dict.result.restart}
-      </button>
-    </section>
   );
 }
