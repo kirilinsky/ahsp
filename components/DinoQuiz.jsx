@@ -3,17 +3,12 @@
 import { useCallback, useEffect, useState } from "react";
 import { pickRound, QUIZ_LENGTH } from "@/data/questions";
 import { format } from "@/i18n/format";
-import {
-  defaultValueFor,
-  isAnswered,
-  nextStage,
-  rankFor,
-  scoreRound,
-} from "@/lib/quiz";
+import { defaultValueFor, isAnswered, nextStage } from "@/lib/quiz";
 import LocaleSwitch from "./LocaleSwitch";
 import ThemeToggle from "./ThemeToggle";
 import TrailProgress from "./TrailProgress";
 import QuestionScreen from "./QuestionScreen";
+import ResultScreen from "./ResultScreen";
 import styles from "./DinoQuiz.module.css";
 
 // Single source of truth for colour lives in app/tokens.css. This mirror

@@ -1,0 +1,16 @@
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.score {
+  margin: 0;
+  color: var(--accent);
+}
+
+.note {
+  margin: 0;
+  max-width: 52ch;
+  color: var(--text-secondary);
+}
