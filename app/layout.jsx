@@ -19,11 +19,21 @@ const manrope = Manrope({
   display: "swap",
 });
 
+// Share cards need absolute URLs. Set NEXT_PUBLIC_SITE_URL once the quiz has
+// a public home; until then the localhost default keeps builds honest.
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+
 export async function generateMetadata() {
   const dict = await getDictionary(await getLocale());
+  const { title, description } = dict.meta;
+
+  // app/opengraph-image.jsx attaches itself to both cards.
   return {
-    title: dict.meta.title,
-    description: dict.meta.description,
+    metadataBase: new URL(siteUrl),
+    title,
+    description,
+    openGraph: { type: "website", siteName: "AHSP", title, description },
+    twitter: { card: "summary_large_image", title, description },
   };
 }
 
