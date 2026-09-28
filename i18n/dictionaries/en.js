@@ -8,6 +8,10 @@ const en = {
     title: "AHSP — are here some pteryx?",
     description:
       "A quiz about dinosaurs, and about everything people file under 'dinosaur' by mistake.",
+    // Link previews for a shared result (/?score=…&total=…).
+    sharedTitle: "{score} of {total} — {rank}",
+    sharedDescription:
+      "That is how someone did on AHSP, the dinosaur quiz the film studios got wrong. Your turn.",
   },
   cover: {
     kicker: "Field notebook",

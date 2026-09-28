@@ -25,11 +25,13 @@ const NETWORKS = [
   },
 ];
 
-export default function ShareBox({ copy, text }) {
-  // The result stage only ever mounts on the client, so the page URL is read
+export default function ShareBox({ copy, text, path }) {
+  // The result stage only ever mounts on the client, so the origin is read
   // once at mount rather than through an effect that would flash an empty row.
   const [url] = useState(() =>
-    typeof window === "undefined" ? "" : window.location.href
+    typeof window === "undefined"
+      ? ""
+      : new URL(path, window.location.origin).href
   );
 
   if (!url) return null;

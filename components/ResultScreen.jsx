@@ -1,5 +1,6 @@
 import { format } from "@/i18n/format";
 import { rankFor, scoreRound } from "@/lib/quiz";
+import { sharePath } from "@/lib/share";
 import ShareBox from "./ShareBox";
 import styles from "./ResultScreen.module.css";
 
@@ -18,6 +19,7 @@ export default function ResultScreen({ dict, round, answers }) {
 
       <ShareBox
         copy={dict.result.share}
+        path={sharePath({ score, total: round.length })}
         text={format(dict.result.share.text, {
           score,
           total: round.length,
