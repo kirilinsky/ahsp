@@ -3,6 +3,7 @@ import { getDictionary, getLocale } from "@/i18n";
 import { format } from "@/i18n/format";
 import { rankFor } from "@/lib/quiz";
 import { OG_SIZE, parseSharedResult } from "@/lib/share";
+import { FONT_FAMILY, loadFonts } from "./fonts";
 
 // A route handler rather than app/opengraph-image.jsx: the file convention
 // never sees searchParams, and it outranks config metadata, so a page could
@@ -23,11 +24,14 @@ const COLOR = {
 export async function GET(request) {
   const params = Object.fromEntries(new URL(request.url).searchParams);
   const shared = parseSharedResult(params);
-  const dict = await getDictionary(await getLocale());
+  const [dict, fonts] = await Promise.all([
+    getLocale().then(getDictionary),
+    loadFonts(),
+  ]);
 
   return new ImageResponse(
     shared ? <ResultCard dict={dict} {...shared} /> : <CoverCard dict={dict} />,
-    OG_SIZE
+    { ...OG_SIZE, fonts }
   );
 }
 
@@ -43,6 +47,8 @@ function Frame({ kicker, children }) {
         gap: 28,
         background: COLOR.canvas,
         padding: 80,
+        fontFamily: FONT_FAMILY,
+        fontWeight: 400,
       }}
     >
       <div
@@ -57,6 +63,7 @@ function Frame({ kicker, children }) {
           border: `1px solid ${COLOR.border}`,
           color: COLOR.secondary,
           fontSize: 26,
+          fontWeight: 700,
           letterSpacing: 2,
           textTransform: "uppercase",
         }}
@@ -82,6 +89,7 @@ function CoverCard({ dict }) {
       <div
         style={{
           fontSize: 92,
+          fontWeight: 800,
           lineHeight: 1.05,
           letterSpacing: -2,
           color: COLOR.text,
@@ -92,7 +100,9 @@ function CoverCard({ dict }) {
       <div style={{ fontSize: 34, lineHeight: 1.35, color: COLOR.secondary }}>
         {dict.cover.subtitle}
       </div>
-      <div style={{ fontSize: 28, color: COLOR.accent }}>{dict.cover.meta}</div>
+      <div style={{ fontSize: 28, fontWeight: 700, color: COLOR.accent }}>
+        {dict.cover.meta}
+      </div>
     </Frame>
   );
 }
@@ -105,6 +115,7 @@ function ResultCard({ dict, score, total }) {
       <div
         style={{
           fontSize: 150,
+          fontWeight: 800,
           lineHeight: 1,
           letterSpacing: -4,
           color: COLOR.accent,
@@ -115,6 +126,7 @@ function ResultCard({ dict, score, total }) {
       <div
         style={{
           fontSize: 76,
+          fontWeight: 700,
           lineHeight: 1.1,
           letterSpacing: -1,
           color: COLOR.text,

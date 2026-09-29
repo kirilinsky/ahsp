@@ -20,9 +20,11 @@ const manrope = Manrope({
   display: "swap",
 });
 
-// Share cards need absolute URLs. Set NEXT_PUBLIC_SITE_URL once the quiz has
-// a public home; until then the localhost default keeps builds honest.
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+// Share cards need absolute URLs, and scrapers only ever see production, so
+// that is the default even in dev. NEXT_PUBLIC_SITE_URL overrides it for a
+// custom domain.
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://ahsp-psi.vercel.app";
 
 export async function generateMetadata() {
   const dict = await getDictionary(await getLocale());
