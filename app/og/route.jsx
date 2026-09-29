@@ -10,15 +10,15 @@ import { FONT_FAMILY, loadFonts } from "./fonts";
 // not swap in a per-result card on top of it.
 
 // Hexes, not the tokens from app/tokens.css: satori resolves no CSS variables
-// and never sees the stylesheet. Light theme only — scrapers have no theme.
+// and never sees the stylesheet. Authored dark theme — scrapers have no theme.
 const COLOR = {
-  canvas: "#fff8f5",
-  surface: "#ffffff",
-  border: "#ddc0b7",
-  accent: "#9d3e1a",
-  warm: "#d96b43",
-  text: "#1e1b18",
-  secondary: "#56423c",
+  canvas: "#333333", // --p-charcoal
+  surface: "#3b3b3b", // --p-charcoal-700
+  border: "#565656", // --p-charcoal-500
+  accent: "#93ae97", // --p-sage-light
+  warm: "#9e847e", // --p-taupe
+  text: "#f0edec", // --p-paper
+  secondary: "#d3c8c5", // --p-paper-dim
 };
 
 export async function GET(request) {

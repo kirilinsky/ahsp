@@ -13,18 +13,14 @@ function readStoredTheme() {
   }
 }
 
-function systemTheme() {
-  return window.matchMedia("(prefers-color-scheme: light)").matches
-    ? "light"
-    : "dark";
-}
-
 export default function ThemeToggle({ label }) {
   // Server render has no idea which theme won; stay neutral until mount.
   const [theme, setTheme] = useState(null);
 
+  // Dark is authored and ignores the system setting; light exists only as a
+  // stored choice made with this toggle.
   useEffect(() => {
-    setTheme(readStoredTheme() ?? systemTheme());
+    setTheme(readStoredTheme() ?? "dark");
   }, []);
 
   function toggle() {

@@ -41,10 +41,9 @@ export async function generateMetadata() {
 }
 
 export const viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#fff8f5" },
-    { media: "(prefers-color-scheme: dark)", color: "#17140f" },
-  ],
+  // --bg-canvas of the authored dark theme; the toggle's light theme is a
+  // per-visitor choice the server never sees.
+  themeColor: "#333333",
 };
 
 export default async function RootLayout({ children }) {

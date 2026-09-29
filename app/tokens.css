@@ -1,57 +1,55 @@
 /* ─────────────────────────────────────────────────────────────
-   Field Expedition & Paleontology — design system
+   Jungle linework — design system
    Layer 1: primitives (the palette as authored, never used directly).
    Layer 2: semantic tokens — the only thing components reference.
-   Light is the authored theme; dark is derived from the M3 inverse /
-   fixed-dim ramps in the same palette.
+   Dark is the authored theme: the five inks come from a charcoal-outlined
+   foliage illustration, and the canvas is that outline colour. Light is
+   derived, and only ever applied by the theme toggle.
    ───────────────────────────────────────────────────────────── */
 
 :root {
   /* ---- Layer 1: palette ---- */
-  --p-surface: #fff8f5;
-  --p-surface-dim: #e1d8d4;
-  --p-surface-container-lowest: #ffffff;
-  --p-surface-container-low: #fbf2ed;
-  --p-surface-container: #f5ece7;
-  --p-surface-container-high: #efe6e2;
-  --p-surface-container-highest: #e9e1dc;
-  --p-on-surface: #1e1b18;
-  --p-on-surface-variant: #56423c;
-  --p-inverse-surface: #34302c;
-  --p-inverse-on-surface: #f8efea;
-  --p-outline: #8a726a;
-  --p-outline-variant: #ddc0b7;
+  /* the illustration's five inks, exact */
+  --p-charcoal: #333333;
+  --p-sage: #81a186;
+  --p-slate: #57737e;
+  --p-plum: #6f5761;
+  --p-taupe: #9e847e;
+  /* the art has no warning ink: rose is taupe pushed 60% toward #d0402f */
+  --p-rose: #bc5b4f;
 
-  --p-primary: #9d3e1a;
-  --p-on-primary: #ffffff;
-  --p-primary-container: #bd5630;
-  --p-on-primary-container: #fffbff;
-  --p-inverse-primary: #ffb59c;
-  --p-primary-fixed: #ffdbcf;
-  --p-primary-fixed-dim: #ffb59c;
-  --p-on-primary-fixed: #390c00;
-  --p-on-primary-fixed-variant: #802a05;
-  /* terracotta from the prose spec — hover warmth, never text-bearing */
-  --p-terracotta: #d96b43;
+  /* Everything below is an ink mixed with white or black (share noted), so
+     a change to an ink above means re-deriving these, not eyeballing. Shares
+     are the smallest that clear WCAG AA against the surfaces they sit on. */
 
-  --p-secondary: #486551;
-  --p-on-secondary: #ffffff;
-  --p-secondary-container: #c9ebd1;
-  --p-on-secondary-container: #4d6b57;
-  --p-secondary-fixed-dim: #aeceb6;
-  --p-on-secondary-fixed: #042111;
+  /* charcoal ramp: surfaces step lighter as they rise */
+  --p-charcoal-900: #262626; /* +25% black */
+  --p-charcoal-850: #2c2c2c; /* +14% black */
+  --p-charcoal-700: #3b3b3b; /* +4% white */
+  --p-charcoal-650: #434343; /* +8% white */
+  --p-charcoal-600: #4b4b4b; /* +12% white */
+  --p-charcoal-500: #565656; /* +17% white */
+  --p-charcoal-400: #8d8d8d; /* +44% white */
 
-  --p-tertiary: #7d531f;
-  --p-on-tertiary: #ffffff;
-  --p-tertiary-container: #9a6b35;
-  --p-tertiary-fixed: #ffddbb;
-  --p-tertiary-fixed-dim: #f5bc7e;
-  --p-on-tertiary-fixed: #2b1700;
+  /* paper: the text ink the illustration never needed, warmed by taupe */
+  --p-paper: #f0edec; /* taupe +85% white */
+  --p-paper-dim: #d3c8c5; /* taupe +55% white */
+  --p-paper-bright: #faf9f9; /* taupe +95% white */
+  --p-paper-sunken: #eae4e3; /* taupe +78% white */
+  --p-paper-line: #dad0ce; /* taupe +62% white */
 
-  --p-error: #ba1a1a;
-  --p-on-error: #ffffff;
-  --p-error-container: #ffdad6;
-  --p-on-error-container: #93000a;
+  /* ink tints: lifted for text on charcoal, deepened for text on paper */
+  --p-sage-light: #93ae97; /* +14% white */
+  --p-sage-lighter: #a4bba8; /* +28% white */
+  --p-sage-dark: #4d6150; /* +40% black */
+  --p-taupe-light: #b9a6a2; /* +28% white */
+  --p-taupe-dark: #5f4f4c; /* +40% black */
+  --p-slate-light: #9eaeb4; /* +42% white */
+  --p-slate-dark: #475e67; /* +18% black */
+  --p-slate-mist: #e1e6e8; /* +82% white */
+  --p-plum-dark: #5b4750; /* +18% black */
+  --p-rose-light: #dba6a0; /* +46% white */
+  --p-rose-dark: #a24e44; /* +14% black */
 
   /* ---- Typography ---- */
   --font-sans: var(--font-jakarta), var(--font-manrope), system-ui,
@@ -147,139 +145,90 @@
   }
 }
 
-/* ---- Layer 2: semantic tokens — light (authored) ---- */
+/* ---- Layer 2: semantic tokens — dark (authored) ---- */
 :root,
-:root[data-theme="light"] {
-  color-scheme: light;
-
-  /* layer 0: the excavation basin */
-  --bg-canvas: var(--p-surface);
-  /* layer 1: cards and tablets */
-  --bg-surface: var(--p-surface-container-lowest);
-  --bg-surface-raised: var(--p-surface-container-low);
-  --bg-surface-sunken: var(--p-surface-container-highest);
-  --bg-surface-hover: var(--p-surface-container-high);
-
-  --border-subtle: var(--p-outline-variant);
-  --border-strong: var(--p-outline);
-
-  --text-primary: var(--p-on-surface);
-  --text-secondary: var(--p-on-surface-variant);
-  --text-muted: var(--p-outline);
-  --text-inverse: var(--p-inverse-on-surface);
-
-  --accent: var(--p-primary);
-  --accent-hover: var(--p-primary-container);
-  --accent-warm: var(--p-terracotta);
-  --accent-contrast: var(--p-on-primary);
-  --accent-quiet: var(--p-primary-fixed);
-
-  --status-correct: var(--p-secondary);
-  --status-correct-bg: color-mix(in srgb, var(--p-secondary) 12%, transparent);
-  --status-correct-border: var(--p-secondary);
-  --status-wrong: var(--p-error);
-  --status-wrong-bg: var(--p-error-container);
-  --status-wrong-border: var(--p-error);
-
-  --highlight: var(--p-tertiary);
-  --highlight-quiet: var(--p-tertiary-fixed);
-
-  --focus-ring: var(--p-primary);
-
-  /* elevation reads as stratum layering, not float */
-  --elevation-1: 0 4px 12px -2px rgba(45, 41, 38, 0.05);
-  --elevation-2: 0 6px 16px -2px rgba(217, 107, 67, 0.12);
-  --elevation-3: 0 16px 36px -4px rgba(45, 41, 38, 0.14);
-}
-
-/* ---- Semantic tokens — dark (night camp) ---- */
 :root[data-theme="dark"] {
   color-scheme: dark;
 
-  --bg-canvas: #17140f;
-  --bg-surface: #211d18;
-  --bg-surface-raised: #2a251f;
-  --bg-surface-sunken: #1c1813;
-  --bg-surface-hover: var(--p-inverse-surface);
+  /* layer 0: the charcoal the leaves are drawn on */
+  --bg-canvas: var(--p-charcoal);
+  /* layer 1: cards */
+  --bg-surface: var(--p-charcoal-700);
+  --bg-surface-raised: var(--p-charcoal-650);
+  --bg-surface-sunken: var(--p-charcoal-850);
+  --bg-surface-hover: var(--p-charcoal-600);
 
-  --border-subtle: #453c34;
-  --border-strong: #6a5a50;
+  --border-subtle: var(--p-charcoal-500);
+  --border-strong: var(--p-charcoal-400);
 
-  --text-primary: var(--p-inverse-on-surface);
-  --text-secondary: #cbb9b1;
-  --text-muted: #9c8a81;
-  --text-inverse: var(--p-on-surface);
+  --text-primary: var(--p-paper);
+  --text-secondary: var(--p-paper-dim);
+  --text-muted: var(--p-taupe-light);
+  --text-inverse: var(--p-charcoal);
 
-  --accent: var(--p-inverse-primary);
-  --accent-hover: var(--p-primary-fixed);
-  --accent-warm: var(--p-terracotta);
-  --accent-contrast: var(--p-on-primary-fixed);
-  --accent-quiet: var(--p-on-primary-fixed-variant);
+  --accent: var(--p-sage-light);
+  --accent-hover: var(--p-sage-lighter);
+  --accent-warm: var(--p-taupe);
+  --accent-contrast: var(--p-charcoal-900);
+  --accent-quiet: color-mix(in srgb, var(--p-sage) 22%, var(--p-charcoal));
 
-  --status-correct: var(--p-secondary-fixed-dim);
-  --status-correct-bg: color-mix(
-    in srgb,
-    var(--p-secondary-fixed-dim) 14%,
-    transparent
-  );
-  --status-correct-border: var(--p-secondary-fixed-dim);
-  --status-wrong: #ffb4ab;
-  --status-wrong-bg: color-mix(in srgb, #ffb4ab 14%, transparent);
-  --status-wrong-border: #ffb4ab;
+  --status-correct: var(--p-sage-lighter);
+  --status-correct-bg: color-mix(in srgb, var(--p-sage) 16%, transparent);
+  --status-correct-border: var(--p-sage-lighter);
+  --status-wrong: var(--p-rose-light);
+  --status-wrong-bg: color-mix(in srgb, var(--p-rose-light) 14%, transparent);
+  --status-wrong-border: var(--p-rose-light);
 
-  --highlight: var(--p-tertiary-fixed-dim);
-  --highlight-quiet: var(--p-on-tertiary-fixed);
+  --highlight: var(--p-slate-light);
+  --highlight-quiet: var(--p-slate);
 
-  --focus-ring: var(--p-inverse-primary);
+  --focus-ring: var(--p-sage-lighter);
 
+  /* on charcoal, depth reads as shadow, not glow */
   --elevation-1: 0 4px 12px -2px rgba(0, 0, 0, 0.4);
-  --elevation-2: 0 6px 16px -2px rgba(217, 107, 67, 0.24);
+  --elevation-2: 0 6px 16px -2px rgba(0, 0, 0, 0.45);
   --elevation-3: 0 16px 36px -4px rgba(0, 0, 0, 0.5);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme]) {
-    color-scheme: dark;
+/* ---- Semantic tokens — light (derived; toggle only) ---- */
+:root[data-theme="light"] {
+  color-scheme: light;
 
-    --bg-canvas: #17140f;
-    --bg-surface: #211d18;
-    --bg-surface-raised: #2a251f;
-    --bg-surface-sunken: #1c1813;
-    --bg-surface-hover: var(--p-inverse-surface);
+  --bg-canvas: var(--p-paper);
+  --bg-surface: var(--p-paper-bright);
+  --bg-surface-raised: var(--p-paper-bright);
+  --bg-surface-sunken: var(--p-paper-sunken);
+  --bg-surface-hover: var(--p-paper-sunken);
 
-    --border-subtle: #453c34;
-    --border-strong: #6a5a50;
+  --border-subtle: var(--p-paper-line);
+  --border-strong: var(--p-taupe);
 
-    --text-primary: var(--p-inverse-on-surface);
-    --text-secondary: #cbb9b1;
-    --text-muted: #9c8a81;
-    --text-inverse: var(--p-on-surface);
+  --text-primary: var(--p-charcoal);
+  --text-secondary: var(--p-plum-dark);
+  --text-muted: var(--p-taupe-dark);
+  --text-inverse: var(--p-paper);
 
-    --accent: var(--p-inverse-primary);
-    --accent-hover: var(--p-primary-fixed);
-    --accent-contrast: var(--p-on-primary-fixed);
-    --accent-quiet: var(--p-on-primary-fixed-variant);
+  --accent: var(--p-sage-dark);
+  --accent-hover: color-mix(in srgb, var(--p-sage-dark) 85%, black);
+  --accent-warm: var(--p-taupe);
+  --accent-contrast: var(--p-paper-bright);
+  --accent-quiet: color-mix(in srgb, var(--p-sage) 22%, var(--p-paper-bright));
 
-    --status-correct: var(--p-secondary-fixed-dim);
-    --status-correct-bg: color-mix(
-      in srgb,
-      var(--p-secondary-fixed-dim) 14%,
-      transparent
-    );
-    --status-correct-border: var(--p-secondary-fixed-dim);
-    --status-wrong: #ffb4ab;
-    --status-wrong-bg: color-mix(in srgb, #ffb4ab 14%, transparent);
-    --status-wrong-border: #ffb4ab;
+  --status-correct: var(--p-sage-dark);
+  --status-correct-bg: color-mix(in srgb, var(--p-sage) 16%, transparent);
+  --status-correct-border: var(--p-sage-dark);
+  --status-wrong: var(--p-rose-dark);
+  --status-wrong-bg: color-mix(in srgb, var(--p-rose-light) 22%, transparent);
+  --status-wrong-border: var(--p-rose-dark);
 
-    --highlight: var(--p-tertiary-fixed-dim);
-    --highlight-quiet: var(--p-on-tertiary-fixed);
+  --highlight: var(--p-slate-dark);
+  --highlight-quiet: var(--p-slate-mist);
 
-    --focus-ring: var(--p-inverse-primary);
+  --focus-ring: var(--p-sage-dark);
 
-    --elevation-1: 0 4px 12px -2px rgba(0, 0, 0, 0.4);
-    --elevation-2: 0 6px 16px -2px rgba(217, 107, 67, 0.24);
-    --elevation-3: 0 16px 36px -4px rgba(0, 0, 0, 0.5);
-  }
+  --elevation-1: 0 4px 12px -2px rgba(46, 46, 46, 0.06);
+  --elevation-2: 0 6px 16px -2px rgba(46, 46, 46, 0.12);
+  --elevation-3: 0 16px 36px -4px rgba(46, 46, 46, 0.16);
 }
 
 @media (prefers-reduced-motion: reduce) {

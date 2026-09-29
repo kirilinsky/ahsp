@@ -55,7 +55,9 @@
 }
 
 .step[data-state="current"] {
-  filter: drop-shadow(0 2px 6px rgba(217, 107, 67, 0.35));
+  filter: drop-shadow(
+    0 2px 6px color-mix(in srgb, var(--accent) 35%, transparent)
+  );
 }
 
 /* untrodden sand */
