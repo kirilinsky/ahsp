@@ -1,6 +1,7 @@
 import { Plus_Jakarta_Sans, Manrope } from "next/font/google";
 import { themeInitScript } from "@/components/theme-init";
 import { getDictionary, getLocale } from "@/i18n";
+import { ogImage } from "@/lib/share";
 import "./globals.css";
 
 const jakarta = Plus_Jakarta_Sans({
@@ -26,14 +27,14 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 export async function generateMetadata() {
   const dict = await getDictionary(await getLocale());
   const { title, description } = dict.meta;
+  const images = [ogImage(null, title)];
 
-  // app/opengraph-image.jsx attaches itself to both cards.
   return {
     metadataBase: new URL(siteUrl),
     title,
     description,
-    openGraph: { type: "website", siteName: "AHSP", title, description },
-    twitter: { card: "summary_large_image", title, description },
+    openGraph: { type: "website", siteName: "AHSP", title, description, images },
+    twitter: { card: "summary_large_image", title, description, images },
   };
 }
 
