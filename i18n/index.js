@@ -14,7 +14,19 @@ export async function getLocale() {
   return normalizeLocale(store.get(LOCALE_COOKIE)?.value);
 }
 
+// A key added to en.js ships before its translations do; without this merge
+// the first render in any other locale would read undefined and crash.
+function withFallback(base, over) {
+  if (!over || typeof base !== "object") return over ?? base;
+  const merged = { ...base };
+  for (const key of Object.keys(over)) {
+    merged[key] = withFallback(base[key], over[key]);
+  }
+  return merged;
+}
+
 export async function getDictionary(locale) {
-  const load = dictionaries[locale] ?? dictionaries[DEFAULT_LOCALE];
-  return load();
+  const base = await dictionaries[DEFAULT_LOCALE]();
+  if (locale === DEFAULT_LOCALE || !dictionaries[locale]) return base;
+  return withFallback(base, await dictionaries[locale]());
 }
