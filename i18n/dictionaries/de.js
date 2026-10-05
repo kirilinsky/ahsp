@@ -18,6 +18,8 @@ const de = {
       "Acht Fragen zur Tiefenzeit. Das meiste, was du über Dinosaurier weißt, stammt aus Filmstudios.",
     start: "Tagebuch öffnen",
     meta: "8 Fragen · etwa 4 Minuten",
+    // Shown when the visit came through a shared result link.
+    challenge: "Jemand hat {score} von {total} geschafft — {rank}. Jetzt du.",
   },
   ui: {
     question: "Frage",

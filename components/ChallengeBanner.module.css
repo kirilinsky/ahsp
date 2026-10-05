@@ -1,0 +1,10 @@
+/* slate: the one ink the quiz doesn't already spend on a state */
+.banner {
+  margin: 0;
+  max-width: 52ch;
+  padding: var(--space-sm) var(--space-md);
+  border-left: 3px solid var(--highlight);
+  border-radius: var(--radius-sm);
+  background: color-mix(in srgb, var(--highlight) 14%, transparent);
+  color: var(--text-primary);
+}

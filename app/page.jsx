@@ -4,8 +4,8 @@ import { format } from "@/i18n/format";
 import { rankFor } from "@/lib/quiz";
 import { ogImage, parseSharedResult } from "@/lib/share";
 
-// A shared link lands on the cover like any other visit; only its preview
-// card changes, so the score reads in the feed before anyone clicks.
+// A shared link lands on the cover like any other visit, plus a banner with
+// the score to beat; its preview card carries the same score into the feed.
 export async function generateMetadata({ searchParams }) {
   const shared = parseSharedResult(await searchParams);
   if (!shared) return {};
@@ -26,9 +26,10 @@ export async function generateMetadata({ searchParams }) {
   };
 }
 
-export default async function Page() {
+export default async function Page({ searchParams }) {
   const locale = await getLocale();
   const dict = await getDictionary(locale);
+  const challenge = parseSharedResult(await searchParams);
 
-  return <DinoQuiz dict={dict} locale={locale} />;
+  return <DinoQuiz dict={dict} locale={locale} challenge={challenge} />;
 }

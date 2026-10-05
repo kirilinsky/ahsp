@@ -18,6 +18,8 @@ const es = {
       "Ocho preguntas sobre el tiempo profundo. Casi todo lo que sabes de los dinosaurios lo escribieron los estudios de cine.",
     start: "Abrir el cuaderno",
     meta: "8 preguntas · unos 4 minutos",
+    // Shown when the visit came through a shared result link.
+    challenge: "Alguien sacó {score} de {total} — {rank}. Te toca.",
   },
   ui: {
     question: "Pregunta",

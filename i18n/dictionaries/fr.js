@@ -18,6 +18,8 @@ const fr = {
       "Huit questions sur le temps profond. Presque tout ce que tu sais des dinosaures a été écrit par des studios de cinéma.",
     start: "Ouvrir le carnet",
     meta: "8 questions · environ 4 minutes",
+    // Shown when the visit came through a shared result link.
+    challenge: "Quelqu’un a fait {score} sur {total} — {rank}. À toi.",
   },
   ui: {
     question: "Question",

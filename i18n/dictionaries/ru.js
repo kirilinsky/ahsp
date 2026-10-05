@@ -18,6 +18,8 @@ const ru = {
       "Восемь вопросов о глубоком времени. Почти всё, что ты знаешь о динозаврах, написали киностудии.",
     start: "Открыть дневник",
     meta: "8 вопросов · около 4 минут",
+    // Shown when the visit came through a shared result link.
+    challenge: "Кто-то набрал {score} из {total} — {rank}. Твоя очередь.",
   },
   ui: {
     question: "Вопрос",

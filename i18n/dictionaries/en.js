@@ -20,6 +20,8 @@ const en = {
       "Eight questions about deep time. Most of what you know about dinosaurs was written by film studios.",
     start: "Open the notebook",
     meta: "8 questions · about 4 minutes",
+    // Shown when the visit came through a shared result link.
+    challenge: "Someone got {score} of {total} — {rank}. Your turn.",
   },
   ui: {
     question: "Question",

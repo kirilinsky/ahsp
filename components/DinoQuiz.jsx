@@ -9,6 +9,7 @@ import ThemeToggle from "./ThemeToggle";
 import TrailProgress from "./TrailProgress";
 import QuestionScreen from "./QuestionScreen";
 import ResultScreen from "./ResultScreen";
+import ChallengeBanner from "./ChallengeBanner";
 import styles from "./DinoQuiz.module.css";
 
 // Single source of truth for colour lives in app/tokens.css. This mirror
@@ -23,7 +24,7 @@ export const TOKENS = {
 
 const EMPTY_RUN = { round: null, answers: {}, index: 0, revealed: false };
 
-export default function DinoQuiz({ dict, locale }) {
+export default function DinoQuiz({ dict, locale, challenge }) {
   const [stage, setStage] = useState("cover");
   const [run, setRun] = useState(EMPTY_RUN);
 
@@ -110,6 +111,9 @@ export default function DinoQuiz({ dict, locale }) {
             <p className={`${styles.subtitle} t-body-lg`}>
               {dict.cover.subtitle}
             </p>
+            {challenge ? (
+              <ChallengeBanner dict={dict} challenge={challenge} />
+            ) : null}
             <button type="button" className={styles.cta} onClick={start}>
               {dict.cover.start}
             </button>
