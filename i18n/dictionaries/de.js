@@ -9,13 +9,13 @@ const de = {
       "Ein Quiz über Dinosaurier — und über alles, was Leute aus Versehen für Dinosaurier halten.",
     sharedTitle: "{score} von {total} — {rank}",
     sharedDescription:
-      "So hat jemand bei AHSP abgeschnitten, dem Dinosaurier-Quiz, bei dem die Filmstudios danebenlagen. Jetzt du.",
+      "So hat jemand bei AHSP abgeschnitten – dem Quiz über Dinosaurier, wie Hollywood sie nie gezeigt hat. Schaffst du mehr?",
   },
   cover: {
     kicker: "Feldtagebuch",
     title: "Are here some pteryx?",
     subtitle:
-      "Acht Fragen zur Tiefenzeit. Das meiste, was du über Dinosaurier weißt, stammt aus Filmstudios.",
+      "Acht Fragen über die Welt vor Millionen von Jahren. Das meiste, was du über Dinosaurier weißt, hat sich Hollywood ausgedacht.",
     start: "Tagebuch öffnen",
     meta: "8 Fragen · etwa 4 Minuten",
     // Shown when the visit came through a shared result link.
@@ -70,23 +70,23 @@ const de = {
   ranks: {
     filmSchool: {
       title: "Absolvent von Jurassic Park",
-      note: "Alles, was du weißt, kommt aus einem Filmstudio. Die gute Nachricht: Fast nichts davon stimmte, also ist viel Platz.",
+      note: "Dein ganzes Wissen stammt aus dem Kino. Die gute Nachricht: Fast nichts davon stimmt – da ist noch viel Luft nach oben.",
     },
     giftShop: {
       title: "Museumsshop",
-      note: "Die Plastikdinos hast du, und die Reihenfolge der Dinge ungefähr auch. Die Jahreszahlen sind noch Fiktion.",
+      note: "Die Plastikdinos hast du, und wer nach wem kam, weißt du ungefähr. Bei den Jahreszahlen wird es noch fantasievoll.",
     },
     fieldAssistant: {
       title: "Grabungshelfer",
-      note: "Du weißt, dass ein Flugsaurier kein Dinosaurier ist und dass die Vögel zuletzt gelacht haben. Die Tiefenzeit rutscht dir noch weg.",
+      note: "Du weißt, dass ein Flugsaurier kein Dinosaurier ist – ein Vogel dagegen schon. Nur bei den Millionen Jahren kommst du noch durcheinander.",
     },
     curator: {
       title: "Kurator",
-      note: "Die Erdzeitalter hältst du auseinander, und ein Rückensegel führt dich nicht hinters Licht. Ein Fundstück ist dir durchgerutscht.",
+      note: "Die Erdzeitalter hältst du auseinander, und von einem Rückensegel lässt du dich nicht täuschen. Nur ein einziger Fehler.",
     },
     palaeontologist: {
       title: "Paläontologe",
-      note: "Volle Punktzahl. Du weißt, dass Stegosaurus weiter von T. rex entfernt ist als T. rex von dir.",
+      note: "Kein einziger Fehler. Du weißt, dass zwischen Stegosaurus und T. rex mehr Zeit liegt als zwischen T. rex und dir.",
     },
   },
 
@@ -97,23 +97,23 @@ const de = {
         "Etwa 30 cm — so groß wie ein Fußball. Die Schale muss dünn genug bleiben, um Sauerstoff zum Embryo durchzulassen, deshalb stoßen Eier an eine harte physikalische Grenze, egal wie riesig das Elterntier ist.",
     },
     "stego-brain": {
-      prompt: "Stegosaurus trug fünf Tonnen Körper. Was wog sein Gehirn?",
+      prompt: "Ein Stegosaurus wog rund fünf Tonnen. Und wie schwer war sein Gehirn?",
       fact:
         "Rund 80 g — eine Walnuss, die fünf Tonnen Tier steuert. Große Körper brauchen keine großen Gehirne.",
     },
     "velociraptor-weight": {
       prompt: "Wie viel wog ein echter Velociraptor?",
       fact:
-        "Etwa 15 kg — truthahngroß und gefiedert. Die Filme nahmen die Proportionen von Deinonychus und behielten den griffigeren Namen.",
+        "Etwa 15 kg — so groß wie ein Truthahn und gefiedert. Im Film sieht man eigentlich einen Deinonychus, nur der Name Velociraptor klang besser.",
     },
     "trex-arm-lift": {
       prompt:
-        "Die Ärmchen von T. rex sind der Running Gag des Mesozoikums. Wie viel konnte ein Arm heben?",
+        "Über die kurzen Ärmchen von T. rex machen sich alle lustig. Wie viel konnte so ein Arm stemmen?",
       fact:
         "Rund 200 kg pro Arm — ein Vielfaches dessen, was ein trainierter Mensch curlen kann. Die Arme waren kurz, nicht schwach.",
     },
     "smallest-dino": {
-      prompt: "Wie lang war der kleinste bekannte Nicht-Vogel-Dinosaurier?",
+      prompt: "Wie lang war der kleinste bekannte Dinosaurier (Vögel nicht mitgezählt)?",
       fact:
         "Etwa 34 cm vom Schnabel bis zum Schwanz — Anchiornis, taubengroß und mit Federn.",
     },
@@ -125,17 +125,17 @@ const de = {
     "dino-era-length": {
       prompt: "Wie lange dauerte das Zeitalter der Dinosaurier?",
       fact:
-        "Etwa 165 Millionen Jahre, von rund 230 bis vor 66 Millionen Jahren. Die Dinosaurier herrschten zweieinhalbmal so lange, wie seit ihrem Aussterben bis zu diesem Quiz vergangen ist.",
+        "Etwa 165 Millionen Jahre, von rund 230 bis vor 66 Millionen Jahren. Die Dinosaurier herrschten zweieinhalbmal so lange, wie seit ihrem Aussterben bis heute vergangen ist.",
     },
     "spino-trex": {
       prompt: "Spinosaurus und T. rex hätten sich begegnen können.",
       fact:
-        "Gleich doppelt ein Mythos. Verschiedene Kontinente — Afrika und Nordamerika — und rund 30 Millionen Jahre Abstand. Der Film hat sie trotzdem in denselben Sumpf gesteckt.",
+        "Ein Mythos, und das aus zwei Gründen: verschiedene Kontinente — Afrika und Nordamerika — und rund 30 Millionen Jahre Abstand. Der Film hat sie trotzdem in denselben Sumpf gesteckt.",
     },
     "versus-cassowary": {
       prompt: "Was ist das?",
       description:
-        "Zwei Beine, bis zu 1,8 m groß, eine 12 cm lange Dolchkralle an der Innenzehe, lebt im tropischen Regenwald, kann einen Menschen mit einem Tritt töten.",
+        "Läuft auf zwei Beinen, wird bis zu 1,8 m groß und trägt an der Innenzehe eine 12 cm lange Dolchkralle. Lebt im tropischen Regenwald und kann einen Menschen mit einem Tritt töten.",
       optionA: "Vogel",
       optionB: "Dinosaurier",
       fact:
@@ -148,12 +148,12 @@ const de = {
       optionA: "Meeresreptil",
       optionB: "Dinosaurier",
       fact:
-        "Ein Ichthyosaurier — ein Meeresreptil, kein Dinosaurier. Dinosaurier sind nie ins Meer gegangen; jeder „Meeresdinosaurier“ gehört zu einer anderen Reptilienlinie.",
+        "Ein Ichthyosaurier — ein Meeresreptil, kein Dinosaurier. Dinosaurier sind nie ins Meer gegangen; jeder „Meeresdinosaurier“ gehört in Wahrheit zu einer anderen Reptiliengruppe.",
     },
     "versus-dunkleosteus": {
       prompt: "Was ist das?",
       description:
-        "Ein gepanzerter Kopf so groß wie ein Kühlschrank, Knochenklingen statt Zähnen, Ozean, vor 380 Millionen Jahren.",
+        "Ein gepanzerter Kopf so groß wie ein Kühlschrank, dazu Knochenklingen statt Zähnen. Lebte vor 380 Millionen Jahren im Ozean.",
       optionA: "Fisch",
       optionB: "Dinosaurier",
       fact:
@@ -166,7 +166,7 @@ const de = {
       optionA: "Vogel",
       optionB: "Dinosaurier",
       fact:
-        "Phorusrhacos, ein „Terrorvogel“, jagte vor 15 bis 2 Millionen Jahren — zig Millionen Jahre nachdem die Nicht-Vogel-Dinosaurier verschwunden waren.",
+        "Phorusrhacos, ein „Terrorvogel“, jagte vor 15 bis 2 Millionen Jahren — zig Millionen Jahre nachdem die Dinosaurier (bis auf die Vögel) ausgestorben waren.",
     },
     "versus-dimetrodon": {
       prompt: "Was ist das?",
@@ -184,21 +184,21 @@ const de = {
       optionA: "Fliegender Dinosaurier",
       optionB: "Fliegendes Reptil, aber kein Dinosaurier",
       fact:
-        "Ein Flugsaurier — ein eigener Zweig der Reptilien. Er lebte neben den Dinosauriern und landet jedes Mal im selben Stickeralbum.",
+        "Ein Flugsaurier — eine eigene Gruppe der Reptilien. Er lebte neben den Dinosauriern, deshalb wird er ständig zu ihnen gezählt.",
     },
     pterodactyl: {
-      prompt: "In der Paläontologie bedeutet „Pterodaktylus“:",
+      prompt: "Was meinen Paläontologen mit „Pterodaktylus“?",
       options: {
         any: "Jedes fliegende Reptil des Mesozoikums",
-        genus: "Pterodactylus — eine bestimmte, eher kleine Gattung",
+        genus: "Nur eine bestimmte, eher kleine Gattung: Pterodactylus",
         synonym: "Genau dasselbe wie „Flugsaurier“",
-        invented: "Nichts — das Wort haben die Filme erfunden",
+        invented: "Gar nichts — das Wort stammt aus dem Kino",
       },
       fact:
         "Pterodactylus ist eine einzige bescheidene Gattung mit etwa einem Meter Spannweite. Der große mit dem Kamm, den du dir vorstellst, ist Pteranodon.",
     },
     biggest: {
-      prompt: "Der größte je beschriebene Dinosaurier:",
+      prompt: "Welcher ist der größte bekannte Dinosaurier?",
       options: {
         argentinosaurus: "Argentinosaurus",
         trex: "Tyrannosaurus rex",
@@ -222,7 +222,7 @@ const de = {
     "stego-second-brain": {
       prompt: "Stegosaurus hatte ein zweites Gehirn in der Hüfte.",
       fact:
-        "Mythos, und zwar ein viktorianischer. In den Hüftwirbeln gibt es einen Hohlraum, aber darin saß höchstwahrscheinlich ein Glykogenkörper — ein Energiespeicher wie bei Vögeln — und kein Nervengewebe.",
+        "Ein Mythos aus dem 19. Jahrhundert. In den Hüftwirbeln gibt es einen Hohlraum, aber darin saß höchstwahrscheinlich ein Glykogenkörper — ein Energiespeicher wie bei Vögeln — und kein Nervengewebe.",
     },
     "polar-dinos": {
       prompt: "Dinosaurier lebten jenseits des Polarkreises, bei Schnee und monatelanger Dunkelheit.",

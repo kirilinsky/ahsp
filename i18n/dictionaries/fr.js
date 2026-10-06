@@ -9,13 +9,13 @@ const fr = {
       "Un quiz sur les dinosaures — et sur tout ce qu’on range par erreur parmi les dinosaures.",
     sharedTitle: "{score} sur {total} — {rank}",
     sharedDescription:
-      "Voilà le score de quelqu’un à AHSP, le quiz sur les dinosaures que les studios de cinéma ont ratés. À toi.",
+      "Le score de quelqu’un à AHSP, le quiz sur les dinosaures tels que le cinéma ne les a jamais montrés. Tu feras mieux ?",
   },
   cover: {
     kicker: "Carnet de terrain",
     title: "Are here some pteryx?",
     subtitle:
-      "Huit questions sur le temps profond. Presque tout ce que tu sais des dinosaures a été écrit par des studios de cinéma.",
+      "Huit questions sur le monde d’il y a des millions d’années. Presque tout ce que tu sais des dinosaures, c’est Hollywood qui l’a inventé.",
     start: "Ouvrir le carnet",
     meta: "8 questions · environ 4 minutes",
     // Shown when the visit came through a shared result link.
@@ -70,23 +70,23 @@ const fr = {
   ranks: {
     filmSchool: {
       title: "Diplômé de Jurassic Park",
-      note: "Tout ce que tu sais vient d’un studio de cinéma. Bonne nouvelle : presque rien n’était vrai, donc il y a de la place.",
+      note: "Tout ce que tu sais vient du cinéma. Bonne nouvelle : presque rien n’est vrai, alors tu as de la marge pour progresser.",
     },
     giftShop: {
       title: "Boutique du musée",
-      note: "Tu as les dinosaures en plastique et une vague idée de l’ordre des choses. Les dates restent de la fiction.",
+      note: "Tu as les dinosaures en plastique et tu sais à peu près qui vient après qui. Pour les dates, c’est encore de la science-fiction.",
     },
     fieldAssistant: {
       title: "Assistant de fouilles",
-      note: "Tu sais qu’un ptérosaure n’est pas un dinosaure et que les oiseaux ont eu le dernier mot. Le temps profond t’échappe encore.",
+      note: "Tu sais qu’un ptérosaure n’est pas un dinosaure, mais qu’un oiseau, si. Avec les millions d’années, en revanche, tu t’emmêles encore.",
     },
     curator: {
       title: "Conservateur",
-      note: "Tu ne confonds pas les ères, et une voile sur le dos ne te trompe pas. Un spécimen t’a échappé.",
+      note: "Tu ne confonds pas les ères, et une voile sur le dos ne te trompe pas. Une seule erreur.",
     },
     palaeontologist: {
       title: "Paléontologue",
-      note: "Sans faute. Tu sais que le stégosaure est plus loin du T. rex que le T. rex ne l’est de toi.",
+      note: "Sans faute. Tu sais qu’il s’est écoulé plus de temps entre le stégosaure et le T. rex qu’entre le T. rex et toi.",
     },
   },
 
@@ -97,23 +97,23 @@ const fr = {
         "Environ 30 cm — un ballon de foot. La coquille doit rester assez fine pour laisser passer l’oxygène jusqu’à l’embryon, alors les œufs butent sur un plafond physique, aussi énorme que soit le parent.",
     },
     "stego-brain": {
-      prompt: "Le stégosaure portait cinq tonnes de corps. Combien pesait son cerveau ?",
+      prompt: "Un stégosaure pesait environ cinq tonnes. Et son cerveau, combien pesait-il ?",
       fact:
         "Environ 80 g — une noix aux commandes de cinq tonnes d’animal. Un grand corps n’exige pas un grand cerveau.",
     },
     "velociraptor-weight": {
       prompt: "Combien pesait un vrai vélociraptor ?",
       fact:
-        "Environ 15 kg — la taille d’une dinde, et couvert de plumes. Les films ont pris les proportions du deinonychus et gardé le nom qui sonne mieux.",
+        "Environ 15 kg — la taille d’une dinde, et couvert de plumes. À l’écran, c’est en fait un deinonychus — on a juste gardé le nom qui claque le plus.",
     },
     "trex-arm-lift": {
       prompt:
-        "Les petits bras du T. rex sont la blague récurrente du Mésozoïque. Combien pouvait soulever un bras ?",
+        "Tout le monde se moque des petits bras du T. rex. Combien pouvait soulever un seul de ces bras ?",
       fact:
         "Environ 200 kg par bras — plusieurs fois ce qu’un humain entraîné soulève en curl. Les bras étaient courts, pas faibles.",
     },
     "smallest-dino": {
-      prompt: "Quelle longueur faisait le plus petit dinosaure non aviaire connu ?",
+      prompt: "Quelle taille faisait le plus petit dinosaure connu (oiseaux mis à part) ?",
       fact:
         "Environ 34 cm du bec à la queue — Anchiornis, de la taille d’un pigeon, plumes comprises.",
     },
@@ -125,17 +125,17 @@ const fr = {
     "dino-era-length": {
       prompt: "Combien de temps a duré l’âge des dinosaures ?",
       fact:
-        "Environ 165 millions d’années, d’à peu près 230 à 66 Ma. Les dinosaures ont régné deux fois et demie plus longtemps que tout le temps écoulé entre leur extinction et ce quiz.",
+        "Environ 165 millions d’années, d’à peu près 230 à 66 Ma. Les dinosaures ont régné deux fois et demie plus longtemps que tout le temps écoulé entre leur extinction et aujourd’hui.",
     },
     "spino-trex": {
       prompt: "Le spinosaure et le T. rex auraient pu se croiser.",
       fact:
-        "Un mythe doublement. Des continents différents — l’Afrique et l’Amérique du Nord — et environ 30 millions d’années d’écart. Le film les a quand même mis dans le même marais.",
+        "Un mythe, et pour deux raisons : des continents différents — l’Afrique et l’Amérique du Nord — et environ 30 millions d’années d’écart. Le film les a quand même mis dans le même marais.",
     },
     "versus-cassowary": {
       prompt: "Qu’est-ce que c’est ?",
       description:
-        "Deux pattes, jusqu’à 1,8 m de haut, une griffe-poignard de 12 cm sur le doigt intérieur, vit en forêt tropicale, peut tuer une personne d’un seul coup de patte.",
+        "Marche sur deux pattes, mesure jusqu’à 1,8 m et porte une griffe-poignard de 12 cm au doigt intérieur. Vit en forêt tropicale et peut tuer un homme d’un seul coup de patte.",
       optionA: "Oiseau",
       optionB: "Dinosaure",
       fact:
@@ -148,12 +148,12 @@ const fr = {
       optionA: "Reptile marin",
       optionB: "Dinosaure",
       fact:
-        "Un ichtyosaure — un reptile marin, pas un dinosaure. Les dinosaures ne sont jamais allés en mer ; chaque « dinosaure marin » appartient à une autre lignée de reptiles.",
+        "Un ichtyosaure — un reptile marin, pas un dinosaure. Les dinosaures ne sont jamais allés en mer ; chaque « dinosaure marin » est en réalité un autre groupe de reptiles.",
     },
     "versus-dunkleosteus": {
       prompt: "Qu’est-ce que c’est ?",
       description:
-        "Une tête cuirassée grande comme un frigo, des lames d’os à la place des dents, l’océan, il y a 380 millions d’années.",
+        "Une tête cuirassée grande comme un frigo et des lames d’os à la place des dents. Vivait dans l’océan il y a 380 millions d’années.",
       optionA: "Poisson",
       optionB: "Dinosaure",
       fact:
@@ -166,7 +166,7 @@ const fr = {
       optionA: "Oiseau",
       optionB: "Dinosaure",
       fact:
-        "Phorusrhacos, un « oiseau de la terreur », chassait il y a 15 à 2 millions d’années — des dizaines de millions d’années après la disparition des dinosaures non aviaires.",
+        "Phorusrhacos, un « oiseau de la terreur », chassait il y a 15 à 2 millions d’années — des dizaines de millions d’années après la disparition des dinosaures (oiseaux mis à part).",
     },
     "versus-dimetrodon": {
       prompt: "Qu’est-ce que c’est ?",
@@ -184,21 +184,21 @@ const fr = {
       optionA: "Dinosaure volant",
       optionB: "Reptile volant, mais pas un dinosaure",
       fact:
-        "Un ptérosaure — une branche à part des reptiles. Il vivait à côté des dinosaures, et finit à chaque fois dans le même album d’autocollants.",
+        "Un ptérosaure — un groupe de reptiles à part. Il vivait aux côtés des dinosaures, alors on le range sans cesse parmi eux.",
     },
     pterodactyl: {
-      prompt: "En paléontologie, « ptérodactyle » désigne :",
+      prompt: "Pour un paléontologue, qu’est-ce qu’un « ptérodactyle » ?",
       options: {
         any: "N’importe quel reptile volant du Mésozoïque",
-        genus: "Pterodactylus — un genre précis, plutôt petit",
-        synonym: "Exactement la même chose que « ptérosaure »",
-        invented: "Rien — le mot a été inventé par les films",
+        genus: "Un seul genre précis, plutôt petit : Pterodactylus",
+        synonym: "La même chose qu’un ptérosaure",
+        invented: "Rien — le mot vient du cinéma",
       },
       fact:
         "Pterodactylus est un seul genre modeste, d’environ un mètre d’envergure. Le grand à crête que tu imagines, c’est le ptéranodon.",
     },
     biggest: {
-      prompt: "Le plus grand dinosaure jamais décrit :",
+      prompt: "Quel est le plus grand dinosaure connu ?",
       options: {
         argentinosaurus: "Argentinosaurus",
         trex: "Tyrannosaurus rex",
@@ -222,7 +222,7 @@ const fr = {
     "stego-second-brain": {
       prompt: "Le stégosaure avait un deuxième cerveau dans les hanches.",
       fact:
-        "Mythe, et victorien de surcroît. Il y a bien une cavité dans les vertèbres du bassin, mais elle abritait sans doute un corps glycogénique — une réserve d’énergie, comme chez les oiseaux — et non du tissu nerveux.",
+        "Un mythe qui date du XIXe siècle. Il y a bien une cavité dans les vertèbres du bassin, mais elle abritait sans doute un corps glycogénique — une réserve d’énergie, comme chez les oiseaux — et non du tissu nerveux.",
     },
     "polar-dinos": {
       prompt: "Des dinosaures vivaient au-delà du cercle polaire, dans la neige et des mois d’obscurité.",

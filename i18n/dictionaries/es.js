@@ -9,13 +9,13 @@ const es = {
       "Un quiz sobre dinosaurios, y sobre todo lo que la gente mete en el saco de los dinosaurios por error.",
     sharedTitle: "{score} de {total} — {rank}",
     sharedDescription:
-      "Así le fue a alguien en AHSP, el quiz de dinosaurios que los estudios de cine contaron mal. Te toca.",
+      "Así le fue a alguien en AHSP, el quiz sobre los dinosaurios que el cine nunca te enseñó. ¿Lo superas?",
   },
   cover: {
     kicker: "Cuaderno de campo",
     title: "Are here some pteryx?",
     subtitle:
-      "Ocho preguntas sobre el tiempo profundo. Casi todo lo que sabes de los dinosaurios lo escribieron los estudios de cine.",
+      "Ocho preguntas sobre el mundo de hace millones de años. Casi todo lo que sabes de los dinosaurios se lo inventó Hollywood.",
     start: "Abrir el cuaderno",
     meta: "8 preguntas · unos 4 minutos",
     // Shown when the visit came through a shared result link.
@@ -70,23 +70,23 @@ const es = {
   ranks: {
     filmSchool: {
       title: "Graduado de Jurassic Park",
-      note: "Todo lo que sabes salió de un estudio de cine. La buena noticia: casi nada era cierto, así que hay mucho espacio.",
+      note: "Todo lo que sabes viene del cine. La buena noticia: casi nada es cierto, así que tienes mucho margen de mejora.",
     },
     giftShop: {
       title: "Tienda del museo",
-      note: "Tienes los dinosaurios de plástico y una idea aproximada del orden de las cosas. Las fechas siguen siendo ficción.",
+      note: "Tienes los dinosaurios de plástico y sabes más o menos quién vino antes. Con las fechas, todavía ciencia ficción.",
     },
     fieldAssistant: {
       title: "Ayudante de campo",
-      note: "Sabes que un pterosaurio no es un dinosaurio y que las aves rieron las últimas. El tiempo profundo todavía se te escapa.",
+      note: "Sabes que un pterosaurio no es un dinosaurio, pero un ave sí. Con los millones de años todavía te lías.",
     },
     curator: {
       title: "Conservador",
-      note: "No confundes las eras y una vela en el lomo no te engaña. Se te escapó un ejemplar.",
+      note: "No confundes las eras y una vela en el lomo no te engaña. Solo un fallo.",
     },
     palaeontologist: {
       title: "Paleontólogo",
-      note: "Puntuación perfecta. Sabes que el estegosaurio está más lejos del T. rex que el T. rex de ti.",
+      note: "Ni un fallo. Sabes que entre el estegosaurio y el T. rex pasó más tiempo que entre el T. rex y tú.",
     },
   },
 
@@ -97,23 +97,23 @@ const es = {
         "Unos 30 cm, como un balón de fútbol. La cáscara tiene que ser lo bastante fina para dejar pasar el oxígeno al embrión, así que los huevos chocan con un techo físico por enorme que sea el progenitor.",
     },
     "stego-brain": {
-      prompt: "El estegosaurio cargaba cinco toneladas de cuerpo. ¿Cuánto pesaba su cerebro?",
+      prompt: "Un estegosaurio pesaba unas cinco toneladas. ¿Y cuánto pesaba su cerebro?",
       fact:
         "Unos 80 g: una nuez al mando de cinco toneladas de animal. Un cuerpo grande no necesita un cerebro grande.",
     },
     "velociraptor-weight": {
       prompt: "¿Cuánto pesaba un velocirraptor de verdad?",
       fact:
-        "Unos 15 kg, del tamaño de un pavo y con plumas. Las películas usaron las proporciones del deinonico y se quedaron con el nombre más pegadizo.",
+        "Unos 15 kg, del tamaño de un pavo y con plumas. En la pantalla en realidad se ve un deinonico; solo se quedaron con el nombre más pegadizo.",
     },
     "trex-arm-lift": {
       prompt:
-        "Los bracitos del T. rex son el chiste recurrente del Mesozoico. ¿Cuánto podía levantar un brazo?",
+        "Todo el mundo se ríe de los bracitos del T. rex. ¿Cuánto podía levantar uno de ellos?",
       fact:
         "Unos 200 kg por brazo, varias veces lo que levanta en curl un humano entrenado. Los brazos eran cortos, no débiles.",
     },
     "smallest-dino": {
-      prompt: "¿Cuánto medía el dinosaurio no aviano más pequeño que conocemos?",
+      prompt: "¿Cuánto medía el dinosaurio más pequeño que conocemos (sin contar las aves)?",
       fact:
         "Unos 34 cm del pico a la cola: Anchiornis, del tamaño de una paloma, con plumas y todo.",
     },
@@ -125,7 +125,7 @@ const es = {
     "dino-era-length": {
       prompt: "¿Cuánto duró la era de los dinosaurios?",
       fact:
-        "Unos 165 millones de años, de aproximadamente 230 a 66 Ma. Los dinosaurios reinaron dos veces y media más que todo el tiempo transcurrido entre su extinción y este quiz.",
+        "Unos 165 millones de años, de aproximadamente 230 a 66 Ma. Los dinosaurios reinaron dos veces y media más que todo el tiempo transcurrido desde su extinción hasta hoy.",
     },
     "spino-trex": {
       prompt: "El espinosaurio y el T. rex pudieron cruzarse.",
@@ -135,7 +135,7 @@ const es = {
     "versus-cassowary": {
       prompt: "¿Qué es esto?",
       description:
-        "Dos patas, hasta 1,8 m de alto, una garra-daga de 12 cm en el dedo interior, vive en la selva tropical y puede matar a una persona de una patada.",
+        "Camina sobre dos patas, mide hasta 1,8 m y tiene una garra como un puñal de 12 cm en el dedo interior. Vive en la selva tropical y puede matar a una persona de una patada.",
       optionA: "Ave",
       optionB: "Dinosaurio",
       fact:
@@ -148,12 +148,12 @@ const es = {
       optionA: "Reptil marino",
       optionB: "Dinosaurio",
       fact:
-        "Un ictiosaurio: un reptil marino, no un dinosaurio. Los dinosaurios nunca se lanzaron al océano; cada «dinosaurio marino» pertenece a otro linaje de reptiles.",
+        "Un ictiosaurio: un reptil marino, no un dinosaurio. Los dinosaurios nunca se lanzaron al océano; cada «dinosaurio marino» es en realidad otro grupo de reptiles.",
     },
     "versus-dunkleosteus": {
       prompt: "¿Qué es esto?",
       description:
-        "Una cabeza acorazada del tamaño de una nevera, cuchillas de hueso en lugar de dientes, océano, hace 380 millones de años.",
+        "Una cabeza acorazada del tamaño de una nevera y cuchillas de hueso en lugar de dientes. Vivía en el océano hace 380 millones de años.",
       optionA: "Pez",
       optionB: "Dinosaurio",
       fact:
@@ -166,12 +166,12 @@ const es = {
       optionA: "Ave",
       optionB: "Dinosaurio",
       fact:
-        "Phorusrhacos, un «ave del terror», cazaba hace entre 15 y 2 millones de años, decenas de millones de años después de que desaparecieran los dinosaurios no avianos.",
+        "Phorusrhacos, un «ave del terror», cazaba hace entre 15 y 2 millones de años, decenas de millones de años después de que se extinguieran los dinosaurios (salvo las aves).",
     },
     "versus-dimetrodon": {
       prompt: "¿Qué es esto?",
       description:
-        "Una vela alta en el lomo, patas abiertas hacia los lados y un hueco asegurado en cada bolsa de dinosaurios de plástico.",
+        "Una vela alta en el lomo y las patas abiertas hacia los lados. Nunca falta en una bolsa de dinosaurios de plástico.",
       optionA: "Dinosaurio",
       optionB: "Pariente de los mamíferos",
       fact:
@@ -184,21 +184,21 @@ const es = {
       optionA: "Dinosaurio volador",
       optionB: "Reptil volador, pero no dinosaurio",
       fact:
-        "Un pterosaurio: una rama propia de los reptiles. Vivió junto a los dinosaurios y acaba siempre en el mismo álbum de cromos.",
+        "Un pterosaurio: un grupo de reptiles aparte. Vivió junto a los dinosaurios, por eso siempre lo meten en el mismo saco.",
     },
     pterodactyl: {
-      prompt: "En paleontología, «pterodáctilo» significa:",
+      prompt: "Para un paleontólogo, ¿qué es un «pterodáctilo»?",
       options: {
         any: "Cualquier reptil volador del Mesozoico",
-        genus: "Pterodactylus, un género concreto y bastante pequeño",
-        synonym: "Exactamente lo mismo que «pterosaurio»",
-        invented: "Nada: la palabra la inventaron las películas",
+        genus: "Solo un género concreto y bastante pequeño: Pterodactylus",
+        synonym: "Lo mismo que un pterosaurio",
+        invented: "Nada: la palabra viene del cine",
       },
       fact:
         "Pterodactylus es un solo género modesto, de un metro de envergadura. El grande con cresta que te imaginas es el pteranodon.",
     },
     biggest: {
-      prompt: "El dinosaurio más grande jamás descrito:",
+      prompt: "¿Cuál es el dinosaurio más grande que se conoce?",
       options: {
         argentinosaurus: "Argentinosaurus",
         trex: "Tyrannosaurus rex",
@@ -222,7 +222,7 @@ const es = {
     "stego-second-brain": {
       prompt: "El estegosaurio tenía un segundo cerebro en la cadera.",
       fact:
-        "Mito, y victoriano. Hay una cavidad en las vértebras de la cadera, pero lo más probable es que albergara un cuerpo de glucógeno, una reserva de energía como la de las aves, y no tejido nervioso.",
+        "Un mito del siglo XIX. Hay una cavidad en las vértebras de la cadera, pero lo más probable es que albergara un cuerpo de glucógeno, una reserva de energía como la de las aves, y no tejido nervioso.",
     },
     "polar-dinos": {
       prompt: "Hubo dinosaurios más allá del círculo polar, entre nieve y meses de oscuridad.",
