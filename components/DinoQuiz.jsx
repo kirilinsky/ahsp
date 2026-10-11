@@ -158,7 +158,12 @@ export default function DinoQuiz({ dict, locale, challenge }) {
           <section className={`${styles.card} ${styles.cover}`}>
             <p className={`${styles.kicker} t-label-sm`}>{dict.result.kicker}</p>
 
-            <ResultScreen dict={dict} round={round} answers={answers} />
+            <ResultScreen
+              dict={dict}
+              round={round}
+              answers={answers}
+              challenge={challenge}
+            />
 
             <button type="button" className={styles.cta} onClick={restart}>
               {dict.result.restart}

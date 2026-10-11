@@ -14,3 +14,14 @@
   max-width: 52ch;
   color: var(--text-secondary);
 }
+
+/* slate, like the cover's ChallengeBanner: the thread of one challenge */
+.versus {
+  margin: 0;
+  align-self: flex-start;
+  padding: var(--space-xs) var(--space-md);
+  border-left: 3px solid var(--highlight);
+  border-radius: var(--radius-sm);
+  background: color-mix(in srgb, var(--highlight) 14%, transparent);
+  color: var(--text-primary);
+}

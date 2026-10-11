@@ -57,6 +57,13 @@ const ru = {
     kicker: "Вердикт",
     scoreLine: "{score} из {total}",
     restart: "Ещё раз",
+    // Only when the round was played from a shared link; {theirs} is the
+    // score in that link.
+    versus: {
+      won: "Победа: {mine} против {theirs}.",
+      tied: "Ничья: у обоих по {mine}.",
+      lost: "В этот раз не хватило: {mine} против {theirs}. Ещё попытка?",
+    },
     share: {
       label: "Поделиться результатом",
       text: "{score} из {total} в AHSP — {rank}.",

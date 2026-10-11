@@ -59,6 +59,13 @@ const en = {
     kicker: "Verdict",
     scoreLine: "{score} of {total}",
     restart: "Run it again",
+    // Only when the round was played from a shared link; {theirs} is the
+    // score in that link.
+    versus: {
+      won: "You win: {mine} against {theirs}.",
+      tied: "A draw: {mine} each.",
+      lost: "Not this time: {mine} against {theirs}. One more go?",
+    },
     share: {
       label: "Share the verdict",
       // Only X carries this line; the other two read the page's OG tags.

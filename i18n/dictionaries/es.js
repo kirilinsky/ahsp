@@ -57,6 +57,13 @@ const es = {
     kicker: "Veredicto",
     scoreLine: "{score} de {total}",
     restart: "Otra vez",
+    // Only when the round was played from a shared link; {theirs} is the
+    // score in that link.
+    versus: {
+      won: "¡Ganaste! {mine} a {theirs}.",
+      tied: "Empate a {mine}.",
+      lost: "Esta vez no: {mine} a {theirs}. ¿Otra?",
+    },
     share: {
       label: "Compartir el veredicto",
       text: "{score} de {total} en AHSP — {rank}.",

@@ -57,6 +57,13 @@ const de = {
     kicker: "Urteil",
     scoreLine: "{score} von {total}",
     restart: "Noch einmal",
+    // Only when the round was played from a shared link; {theirs} is the
+    // score in that link.
+    versus: {
+      won: "Gewonnen: {mine} gegen {theirs}.",
+      tied: "Gleichstand: beide {mine}.",
+      lost: "Diesmal nicht: {mine} gegen {theirs}. Noch eine Runde?",
+    },
     share: {
       label: "Urteil teilen",
       text: "{score} von {total} bei AHSP — {rank}.",

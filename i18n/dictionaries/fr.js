@@ -57,6 +57,13 @@ const fr = {
     kicker: "Verdict",
     scoreLine: "{score} sur {total}",
     restart: "Rejouer",
+    // Only when the round was played from a shared link; {theirs} is the
+    // score in that link.
+    versus: {
+      won: "Gagné : {mine} contre {theirs}.",
+      tied: "Égalité : {mine} partout.",
+      lost: "Pas cette fois : {mine} contre {theirs}. On remet ça ?",
+    },
     share: {
       label: "Partager le verdict",
       text: "{score} sur {total} à AHSP — {rank}.",
